@@ -1,0 +1,135 @@
+html,
+body {
+    overflow-x: hidden;
+    font-family: 'Switzer', sans-serif;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  background-color: #eaeaea;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.mobile_ic {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 0 1rem;
+}
+
+.mobile_ic img {
+  width: 8rem;
+}
+
+section.mobile_nav {
+  /* border-bottom: 1px solid #5a5a5a; */
+  border-bottom: 2px solid rgba(0, 82, 255, 0.4);
+}
+
+a button.m_loogin {
+  width: 100%;
+  height: 3rem;
+  background-color: #0052ff;
+  color: white;
+  border-radius: 5px;
+  /* margin-top: 4vh; */
+  font-size: 25px;
+}
+a button.m_register {
+  width: 100%;
+  height: 3rem;
+  background-color: transparent !important;
+  color:#0052ff;
+  border: 2px solid #0052ff;
+  border-radius: 5px;
+  margin-top: 1rem;
+  font-size: 25px;
+}
+
+.mob_button{
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+div#mySidenav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* div#mySidenav {
+  padding: 4rem 2rem;
+} */
+
+/* login button */
+a button.m_loogin {
+  width: 100%;
+  height: 3.5rem;
+  font-weight: 500;
+  color: white;
+  border-radius: 3px;
+  font-size: 20px;
+  background-color: #0052FF !important;
+  margin-bottom: -10px;
+  padding: 0 !important;
+}
+
+a button.m_register {
+  width: 100%;
+  margin-top: 5px;
+    height: 3.5rem;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    border-radius: 3px;
+    font-size: 20px;
+    border: 2px solid #0052FF !important;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 500px){ 
+
+.mobile_nav{
+  display: none;
+}
+
+}
