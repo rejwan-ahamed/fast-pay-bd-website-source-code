@@ -58,7 +58,7 @@ $tufetch = mysqli_fetch_assoc($tuquery);
         <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div class="py-4 text-gray-500 dark:text-gray-400 my-5">
                 <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-                    coin-ex
+                    Fast Pay BD
                 </a>
                 <ul>
 
@@ -342,46 +342,47 @@ $tufetch = mysqli_fetch_assoc($tuquery);
                                         // $fatch = mysqli_fetch_assoc($query);
 
                                         while ($fatch = mysqli_fetch_assoc($query)) {
-                                            if ($fatch['send'] == 'Tron') {
-                                                $send = '<img src="./icons/tron.svg" width="28px" alt="">';
-                                            } elseif ($fatch['send'] == 'Litecoin') {
-                                                $send = '<img src="./icons/litecoin.svg" width="28px" alt="">';
-                                            } elseif ($fatch['send'] == 'Payeer') {
-                                                $send = '<img src="./icons/payeer.svg" width="28px" alt="">';
-                                            } elseif ($fatch['send'] == 'Perfect money') {
-                                                $send = '<img src="./icons/perfect.svg" width="28px" alt="">';
-                                            } elseif ($fatch['send'] == 'Coinbase') {
-                                                $send = '<img src="./icons/coinbase.svg" width="28px" alt="">';
-                                            } elseif ($fatch['send'] == 'Bkash Personal') {
+                                            if ($fatch['send'] == 'Bkash Personal') {
                                                 $send = '<img src="./icons/bkash.svg" width="28px" alt="">';
                                             } elseif ($fatch['send'] == 'Nagad Personal') {
                                                 $send = '<img src="./icons/nagad.svg" width="28px" alt="">';
-                                            } elseif ($fatch['send'] == 'Tether') {
-                                                $send = '<img src="./icons/theter.svg" width="28px" alt="">';
+                                            } elseif ($fatch['send'] == 'Upay Personal') {
+                                                $send = '<img src="./icons/upay.svg" width="28px" alt="">';
+                                            } elseif ($fatch['send'] == 'Payeer') {
+                                                $send = '<img src="./icons/payeer.svg" width="28px" alt="">';
+                                            } elseif ($fatch['send'] == 'Payoneer') {
+                                                $send = '<img src="./icons/payoneer.svg" width="28px" alt="">';
+                                            } elseif ($fatch['send'] == 'Perfect Money') {
+                                                $send = '<img src="./icons/perfect.svg" width="28px" alt="">';
+                                            } elseif ($fatch['send'] == 'Paypal') {
+                                                $send = '<img src="./icons/paypal.svg" width="28px" alt="">';
+                                            } elseif ($fatch['send'] == 'AdvCash') {
+                                                $send = '<img src="./icons/advcash.svg" width="28px" alt="">';
                                             }
-
-
-
+                
+                
+                
                                             // recive
-
-
-                                            if ($fatch['recive'] == 'Tron') {
-                                                $recive = '<img src="./icons/tron.svg" width="28px" alt="" class = "recive_img">';
-                                            } elseif ($fatch['recive'] == 'Litecoin') {
-                                                $recive = '<img src="./icons/litecoin.svg" width="28px" alt="" class = "recive_img">';
-                                            } elseif ($fatch['recive'] == 'Payeer') {
-                                                $recive = '<img src="./icons/payeer.svg" width="28px" alt="" class = "recive_img">';
-                                            } elseif ($fatch['recive'] == 'Perfect money') {
-                                                $recive = '<img src="./icons/perfect.svg" width="28px" alt="" class = "recive_img">';
-                                            } elseif ($fatch['recive'] == 'Coinbase') {
-                                                $recive = '<img src="./icons/coinbase.svg" width="28px" alt="" class = "recive_img">';
-                                            } elseif ($fatch['recive'] == 'Bkash Personal') {
-                                                $recive = '<img src="./icons/bkash.svg" width="28px" alt="" class = "recive_img">';
+                
+                
+                                            if ($fatch['recive'] == 'Bkash Personal') {
+                                                $recive = '<img src="./icons/bkash.svg" width="28px" alt="">';
                                             } elseif ($fatch['recive'] == 'Nagad Personal') {
-                                                $recive = '<img src="./icons/nagad.svg" width="28px" alt="" class = "recive_img">';
-                                            } elseif ($fatch['recive'] == 'Tether') {
-                                                $recive = '<img src="./icons/theter.svg" width="28px" alt="" class = "recive_img">';
+                                                $recive = '<img src="./icons/nagad.svg" width="28px" alt="">';
+                                            } elseif ($fatch['recive'] == 'Upay Personal') {
+                                                $recive = '<img src="./icons/upay.svg" width="28px" alt="">';
+                                            } elseif ($fatch['recive'] == 'Payeer') {
+                                                $recive = '<img src="./icons/payeer.svg" width="28px" alt="">';
+                                            } elseif ($fatch['recive'] == 'Payoneer') {
+                                                $recive = '<img src="./icons/payoneer.svg" width="28px" alt="">';
+                                            } elseif ($fatch['recive'] == 'Perfect Money') {
+                                                $recive = '<img src="./icons/perfect.svg" width="28px" alt="">';
+                                            } elseif ($fatch['recive'] == 'Paypal') {
+                                                $recive = '<img src="./icons/paypal.svg" width="28px" alt="">';
+                                            } elseif ($fatch['recive'] == 'AdvCash') {
+                                                $recive = '<img src="./icons/advcash.svg" width="28px" alt="">';
                                             }
+                
 
 
 

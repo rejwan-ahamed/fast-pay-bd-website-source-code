@@ -7,6 +7,8 @@ if (!isset($_SESSION['loggedn1']) || $_SESSION['loggedn1'] != true) {
 }
 
 
+// bkash getaway here
+
 if (isset($_POST['bkash_send'])) {
     include('connection.php');
     // $getaway1 = "bkash";
@@ -73,6 +75,116 @@ if (isset($_POST['nagad_send'])) {
 ?>
 
 
+<!-- upay getaway -->
+
+<?php
+if (isset($_POST['upay_send'])) {
+    include('connection.php');
+    // $getaway1 = "upay";
+    $upay_send = $_POST['upay_send'];
+    $upay_recive = $_POST['upay_recive'];
+    $upay_reserv = $_POST['upay_reserv'];
+    $sno = 3;
+
+    // echo $getaway1; echo $upay_send; echo $upay_recive; echo $upay_reserv;
+
+    $sql2 = " UPDATE `getaway` SET `send`='$upay_send',`recive`='$upay_recive',`reserv`='$upay_reserv' WHERE sno = '$sno' ";
+    $query = mysqli_query($con, $sql2);
+
+    if ($upay_send == "" || $upay_send == "" ||  $upay_reserv == "") {
+        $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
+        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
+        </div> </div>';
+    } else {
+        if ($query) {
+            $succ = ' <div class="p-3">
+            <div class="alert alert-success" role="alert">
+            <i class="bi bi-cloud-arrow-up-fill"></i> &nbsp;  details updated.
+            </div>
+         </div>';
+        } else {
+            echo "data notupdated";
+        }
+    }
+}
+?>
+
+<!-- payeer getaway -->
+
+<?php
+if (isset($_POST['payeer_send'])) {
+    include('connection.php');
+    // $getaway1 = "payeer";
+    $payeer_send = $_POST['payeer_send'];
+    $payeer_recive = $_POST['payeer_recive'];
+    $payeer_reserv = $_POST['payeer_reserv'];
+    $payeer_min = $_POST['payeer_min'];
+    $payeer_max = $_POST['payeer_max'];
+    $payeer_minusd = $_POST['payeer_minusd'];
+    $payeer_maxusd = $_POST['payeer_maxusd'];
+    $sno = 4;
+
+    // echo $getaway1; echo $payeer_send; echo $payeer_recive; echo $payeer_reserv;
+
+    $sql2 = " UPDATE `getaway` SET `send`='$payeer_send',`recive`='$payeer_recive',`reserv`='$payeer_reserv',`min`='$payeer_min',`max`='$payeer_max',`minusd`='$payeer_minusd',`maxusd`='$payeer_maxusd' WHERE sno = '$sno' ";
+    $query = mysqli_query($con, $sql2);
+
+    if ($payeer_send == "" || $payeer_send == "" ||  $payeer_reserv == "") {
+        $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
+        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
+        </div> </div>';
+    } else {
+        if ($query) {
+            $succ = ' <div class="p-3">
+        <div class="alert alert-success" role="alert">
+        <i class="bi bi-cloud-arrow-up-fill"></i> &nbsp;  details updated.
+        </div>
+     </div>';
+        } else {
+            echo "data notupdated";
+        }
+    }
+}
+?>
+
+<!-- payoneer getaway -->
+
+<?php
+if (isset($_POST['payoneer_send'])) {
+    include('connection.php');
+    // $getaway1 = "payoneer";
+    $payoneer_send = $_POST['payoneer_send'];
+    $payoneer_recive = $_POST['payoneer_recive'];
+    $payoneer_reserv = $_POST['payoneer_reserv'];
+    $payoneer_min = $_POST['payoneer_min'];
+    $payoneer_max = $_POST['payoneer_max'];
+    $payoneer_minusd = $_POST['payoneer_minusd'];
+    $payoneer_maxusd = $_POST['payoneer_maxusd'];
+    $sno = 5;
+
+    // echo $getaway1; echo $payoneer_send; echo $payoneer_recive; echo $payoneer_reserv;
+
+    $sql2 = " UPDATE `getaway` SET `send`='$payoneer_send',`recive`='$payoneer_recive',`reserv`='$payoneer_reserv',`min`='$payoneer_min',`max`='$payoneer_max',`minusd`='$payoneer_minusd',`maxusd`='$payoneer_maxusd' WHERE sno = '$sno' ";
+    $query = mysqli_query($con, $sql2);
+
+    if ($payoneer_send == "" || $payoneer_send == "" ||  $payoneer_reserv == "") {
+        $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
+        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
+        </div> </div>';
+    } else {
+        if ($query) {
+            $succ = ' <div class="p-3">
+        <div class="alert alert-success" role="alert">
+        <i class="bi bi-cloud-arrow-up-fill"></i> &nbsp;  details updated.
+        </div>
+     </div>';
+        } else {
+            echo "data notupdated";
+        }
+    }
+}
+?>
+
 <!-- perfect money getaway -->
 
 <?php
@@ -84,13 +196,13 @@ if (isset($_POST['perfect_send'])) {
     $perfect_reserv = $_POST['perfect_reserv'];
     $perfect_min = $_POST['perfect_min'];
     $perfect_max = $_POST['perfect_max'];
-    $perfect_minusd = $_POST['perfect_minusd'];
     $perfect_maxusd = $_POST['perfect_maxusd'];
-    $sno = 3;
+    $perfect_minusd = $_POST['perfect_minusd'];
+    $sno = 6;
 
     // echo $getaway1; echo $perfect_send; echo $perfect_recive; echo $perfect_reserv;
 
-    $sql2 = " UPDATE `getaway` SET `send`='$perfect_send',`recive`='$perfect_recive',`reserv`='$perfect_reserv', `min`='$perfect_min', `max`='$perfect_max' , `minusd`='$perfect_minusd', `maxusd`='$perfect_maxusd' WHERE sno = '$sno' ";
+    $sql2 = " UPDATE `getaway` SET `send`='$perfect_send',`recive`='$perfect_recive',`reserv`='$perfect_reserv',`min`='$perfect_min',`max`='$perfect_max',`minusd`='$perfect_minusd',`maxusd`='$perfect_maxusd' WHERE sno = '$sno' ";
     $query = mysqli_query($con, $sql2);
 
     if ($perfect_send == "" || $perfect_send == "" ||  $perfect_reserv == "") {
@@ -111,141 +223,27 @@ if (isset($_POST['perfect_send'])) {
 }
 ?>
 
-<!-- Litecoin money getaway -->
+<!-- paypal getaway -->
 
 <?php
-if (isset($_POST['litecoin_send'])) {
+if (isset($_POST['paypal_send'])) {
     include('connection.php');
-    // $getaway1 = "litecoin";
-    $litecoin_send = $_POST['litecoin_send'];
-    $litecoin_recive = $_POST['litecoin_recive'];
-    $litecoin_reserv = $_POST['litecoin_reserv'];
-    $litecoin_min = $_POST['litecoin_min'];
-    $litecoin_max = $_POST['litecoin_max'];
-    $litecoin_minusd = $_POST['litecoin_minusd'];
-    $litecoin_maxusd = $_POST['litecoin_maxusd'];
-    $sno = 4;
-
-    // echo $getaway1; echo $litecoin_send; echo $litecoin_recive; echo $litecoin_reserv;
-
-    $sql2 = " UPDATE `getaway` SET `send`='$litecoin_send',`recive`='$litecoin_recive',`reserv`='$litecoin_reserv',`min`='$litecoin_min',`max`='$litecoin_max',`minusd`='$litecoin_minusd',`maxusd`='$litecoin_maxusd' WHERE sno = '$sno' ";
-    $query = mysqli_query($con, $sql2);
-
-    if ($litecoin_send == "" || $litecoin_send == "" ||  $litecoin_reserv == "") {
-        $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
-        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
-        </div> </div>';
-    } else {
-        if ($query) {
-            $succ = ' <div class="p-3">
-        <div class="alert alert-success" role="alert">
-        <i class="bi bi-cloud-arrow-up-fill"></i> &nbsp;  details updated.
-        </div>
-     </div>';
-        } else {
-            echo "data notupdated";
-        }
-    }
-}
-?>
-
-<!-- tron money getaway -->
-
-<?php
-if (isset($_POST['tron_send'])) {
-    include('connection.php');
-    // $getaway1 = "tron";
-    $tron_send = $_POST['tron_send'];
-    $tron_recive = $_POST['tron_recive'];
-    $tron_reserv = $_POST['tron_reserv'];
-    $tron_min = $_POST['tron_min'];
-    $tron_max = $_POST['tron_max'];
-    $tron_minusd = $_POST['tron_minusd'];
-    $tron_maxusd = $_POST['tron_maxusd'];
-    $sno = 5;
-
-    // echo $getaway1; echo $tron_send; echo $tron_recive; echo $tron_reserv;
-
-    $sql2 = " UPDATE `getaway` SET `send`='$tron_send',`recive`='$tron_recive',`reserv`='$tron_reserv',`min`='$tron_min',`max`='$tron_max',`minusd`='$tron_minusd',`maxusd`='$tron_maxusd' WHERE sno = '$sno' ";
-    $query = mysqli_query($con, $sql2);
-
-    if ($tron_send == "" || $tron_send == "" ||  $tron_reserv == "") {
-        $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
-        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
-        </div> </div>';
-    } else {
-        if ($query) {
-            $succ = ' <div class="p-3">
-        <div class="alert alert-success" role="alert">
-        <i class="bi bi-cloud-arrow-up-fill"></i> &nbsp;  details updated.
-        </div>
-     </div>';
-        } else {
-            echo "data notupdated";
-        }
-    }
-}
-?>
-
-<!-- theter money getaway -->
-
-<?php
-if (isset($_POST['theter_send'])) {
-    include('connection.php');
-    // $getaway1 = "theter";
-    $theter_send = $_POST['theter_send'];
-    $theter_recive = $_POST['theter_recive'];
-    $theter_reserv = $_POST['theter_reserv'];
-    $theter_min = $_POST['theter_min'];
-    $theter_max = $_POST['theter_max'];
-    $theter_maxusd = $_POST['theter_maxusd'];
-    $theter_minusd = $_POST['theter_minusd'];
-    $sno = 6;
-
-    // echo $getaway1; echo $theter_send; echo $theter_recive; echo $theter_reserv;
-
-    $sql2 = " UPDATE `getaway` SET `send`='$theter_send',`recive`='$theter_recive',`reserv`='$theter_reserv',`min`='$theter_min',`max`='$theter_max',`minusd`='$theter_minusd',`maxusd`='$theter_maxusd' WHERE sno = '$sno' ";
-    $query = mysqli_query($con, $sql2);
-
-    if ($theter_send == "" || $theter_send == "" ||  $theter_reserv == "") {
-        $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
-        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
-        </div> </div>';
-    } else {
-        if ($query) {
-            $succ = ' <div class="p-3">
-        <div class="alert alert-success" role="alert">
-        <i class="bi bi-cloud-arrow-up-fill"></i> &nbsp;  details updated.
-        </div>
-     </div>';
-        } else {
-            echo "data notupdated";
-        }
-    }
-}
-?>
-
-<!-- coinbase money getaway -->
-
-<?php
-if (isset($_POST['coinbase_send'])) {
-    include('connection.php');
-    // $getaway1 = "coinbase";
-    $coinbase_send = $_POST['coinbase_send'];
-    $coinbase_recive = $_POST['coinbase_recive'];
-    $coinbase_reserv = $_POST['coinbase_reserv'];
-    $coinbase_min = $_POST['coinbase_min'];
-    $coinbase_max = $_POST['coinbase_max'];
-    $coinbase_maxusd = $_POST['coinbase_maxusd'];
-    $coinbase_minusd = $_POST['coinbase_minusd'];
+    // $getaway1 = "paypal";
+    $paypal_send = $_POST['paypal_send'];
+    $paypal_recive = $_POST['paypal_recive'];
+    $paypal_reserv = $_POST['paypal_reserv'];
+    $paypal_min = $_POST['paypal_min'];
+    $paypal_max = $_POST['paypal_max'];
+    $paypal_maxusd = $_POST['paypal_maxusd'];
+    $paypal_minusd = $_POST['paypal_minusd'];
     $sno = 7;
 
-    // echo $getaway1; echo $coinbase_send; echo $coinbase_recive; echo $coinbase_reserv;
+    // echo $getaway1; echo $paypal_send; echo $paypal_recive; echo $paypal_reserv;
 
-    $sql2 = " UPDATE `getaway` SET `send`='$coinbase_send',`recive`='$coinbase_recive',`reserv`='$coinbase_reserv',`min`='$coinbase_min',`max`='$coinbase_max',`minusd`='$coinbase_minusd',`maxusd`='$coinbase_maxusd' WHERE sno = '$sno' ";
+    $sql2 = " UPDATE `getaway` SET `send`='$paypal_send',`recive`='$paypal_recive',`reserv`='$paypal_reserv',`min`='$paypal_min',`max`='$paypal_max',`minusd`='$paypal_minusd',`maxusd`='$paypal_maxusd' WHERE sno = '$sno' ";
     $query = mysqli_query($con, $sql2);
 
-    if ($coinbase_send == "" || $coinbase_send == "" ||  $coinbase_reserv == "") {
+    if ($paypal_send == "" || $paypal_send == "" ||  $paypal_reserv == "") {
         $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
         <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
         </div> </div>';
@@ -263,27 +261,27 @@ if (isset($_POST['coinbase_send'])) {
 }
 ?>
 
-<!-- payeer getaway -->
+<!-- advcash getaway -->
 
 <?php
-if (isset($_POST['payeer_send'])) {
+if (isset($_POST['advcash_send'])) {
     include('connection.php');
-    // $getaway1 = "payeer";
-    $payeer_send = $_POST['payeer_send'];
-    $payeer_recive = $_POST['payeer_recive'];
-    $payeer_reserv = $_POST['payeer_reserv'];
-    $payeer_min = $_POST['payeer_min'];
-    $payeer_max = $_POST['payeer_max'];
-    $payeer_maxusd = $_POST['payeer_maxusd'];
-    $payeer_minusd = $_POST['payeer_minusd'];
+    // $getaway1 = "advcash";
+    $advcash_send = $_POST['advcash_send'];
+    $advcash_recive = $_POST['advcash_recive'];
+    $advcash_reserv = $_POST['advcash_reserv'];
+    $advcash_min = $_POST['advcash_min'];
+    $advcash_max = $_POST['advcash_max'];
+    $advcash_maxusd = $_POST['advcash_maxusd'];
+    $advcash_minusd = $_POST['advcash_minusd'];
     $sno = 8;
 
-    // echo $getaway1; echo $payeer_send; echo $payeer_recive; echo $payeer_reserv;
+    // echo $getaway1; echo $advcash_send; echo $advcash_recive; echo $advcash_reserv;
 
-    $sql2 = " UPDATE `getaway` SET `send`='$payeer_send',`recive`='$payeer_recive',`reserv`='$payeer_reserv',`min`='$payeer_min' ,`max`='$payeer_max',`minusd`='$payeer_minusd' ,`maxusd`='$payeer_maxusd' WHERE sno = '$sno' ";
+    $sql2 = " UPDATE `getaway` SET `send`='$advcash_send',`recive`='$advcash_recive',`reserv`='$advcash_reserv',`min`='$advcash_min' ,`max`='$advcash_max',`minusd`='$advcash_minusd' ,`maxusd`='$advcash_maxusd' WHERE sno = '$sno' ";
     $query = mysqli_query($con, $sql2);
 
-    if ($payeer_send == "" || $payeer_send == "" ||  $payeer_reserv == "") {
+    if ($advcash_send == "" || $advcash_send == "" ||  $advcash_reserv == "") {
         $war = '<div class="p-3"><div class="alert alert-warning" role="alert">
         <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; All fields are required.
         </div> </div>';
@@ -344,7 +342,7 @@ if (isset($_POST['payeer_send'])) {
         <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div class="py-4 text-gray-500 dark:text-gray-400 my-5">
                 <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-                    coin-ex
+                    Fast Pay BD
                 </a>
                 <ul>
 
@@ -602,6 +600,10 @@ if (isset($_POST['payeer_send'])) {
 
                 <div class="gataway p-5">
                     <form method="POST" action="#">
+
+
+                        <!-- bkash getaway -->
+
                         <div class="row g-3 mb-3">
 
                             <?php
@@ -665,7 +667,7 @@ if (isset($_POST['payeer_send'])) {
                             </div>
                         </div>
 
-                        <!-- perfect money getaway -->
+                        <!-- upay getaway -->
 
                         <div class="row g-3 mb-3">
                             <?php
@@ -675,19 +677,145 @@ if (isset($_POST['payeer_send'])) {
                             $fatch = mysqli_fetch_assoc($fquery)
                             ?>
                             <div class="col-sm-3 icon_image">
+                                <img src="./icons/upay.svg" alt="" width="40">
+                                <h3>Upay PERSONAL BDT</h3>
+                            </div>
+
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Buying BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="upay_recive">
+                            </div>
+
+                            <div class="col-sm-1">
+                                <label for="firstName" class="form-label">Selling BDT </label>
+                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="upay_send">
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <label for="lastName" class="form-label">Reserv</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="upay_reserv">
+                            </div>
+                        </div>
+
+                        <!-- payeer -->
+
+                        <div class="row g-3 mb-3">
+                            <?php
+                            include('connection.php');
+                            $fsql = "SELECT * FROM `getaway` WHERE sno = 4 ";
+                            $fquery = mysqli_query($con, $fsql);
+                            $fatch = mysqli_fetch_assoc($fquery)
+                            ?>
+                            <div class="col-sm-3 icon_image">
+                                <img src="./icons/payeer.svg" alt="" width="40">
+                                <h3>Payeer USD</h3>
+                            </div>
+
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Buying BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="payeer_recive">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="firstName" class="form-label">Selling BDT </label>
+                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="payeer_send">
+                            </div>
+
+
+
+                            <div class="col-sm-2">
+                                <label for="lastName" class="form-label">Reserv</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="payeer_reserv">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Minimum BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="payeer_min">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Maximum BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="payeer_max">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Minimum USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="payeer_minusd">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Maximum USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="payeer_maxusd">
+                            </div>
+                        </div>
+
+
+                        <!-- payoneer -->
+                        <div class="row g-3 mb-3">
+                            <?php
+                            include('connection.php');
+                            $fsql = "SELECT * FROM `getaway` WHERE sno = 5 ";
+                            $fquery = mysqli_query($con, $fsql);
+                            $fatch = mysqli_fetch_assoc($fquery)
+                            ?>
+                            <div class="col-sm-3 icon_image">
+                                <img src="./icons/payoneer.svg" alt="" width="40">
+                                <h3>Payoneer USD</h3>
+                            </div>
+
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Buying BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="payoneer_recive">
+                            </div>
+
+                            <div class="col-sm-1">
+                                <label for="firstName" class="form-label">Selling BDT </label>
+                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="payoneer_send">
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <label for="lastName" class="form-label">Reserv</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="payoneer_reserv">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Minimum BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="payoneer_min">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Maximum BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="payoneer_max">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Minimum USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="payoneer_minusd">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="lastName" class="form-label">Maximum USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="payoneer_maxusd">
+                            </div>
+                        </div>
+
+
+                        <!-- perfect money  -->
+
+                        <div class="row g-3 mb-3">
+                            <?php
+                            include('connection.php');
+                            $fsql = "SELECT * FROM `getaway` WHERE sno = 6 ";
+                            $fquery = mysqli_query($con, $fsql);
+                            $fatch = mysqli_fetch_assoc($fquery)
+                            ?>
+                            <div class="col-sm-3 icon_image">
                                 <img src="./icons/perfect.svg" alt="" width="40">
-                                <h3>PERFECT MONEY USD</h3>
+                                <h3>Perfect Money USD</h3>
                             </div>
 
                             <div class="col-sm-1">
                                 <label for="lastName" class="form-label">Buying BDT</label>
                                 <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="perfect_recive">
                             </div>
+
                             <div class="col-sm-1">
                                 <label for="firstName" class="form-label">Selling BDT </label>
                                 <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="perfect_send">
                             </div>
-
 
 
                             <div class="col-sm-2">
@@ -703,156 +831,16 @@ if (isset($_POST['payeer_send'])) {
                                 <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="perfect_max">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimum USD</label>
+                                <label for="lastName" class="form-label">Minimum TRX</label>
                                 <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="perfect_minusd">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximum USD</label>
+                                <label for="lastName" class="form-label">Maximum TRX</label>
                                 <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="perfect_maxusd">
                             </div>
                         </div>
 
-
-                        <!-- litecoin -->
-                        <div class="row g-3 mb-3">
-                            <?php
-                            include('connection.php');
-                            $fsql = "SELECT * FROM `getaway` WHERE sno = 4 ";
-                            $fquery = mysqli_query($con, $fsql);
-                            $fatch = mysqli_fetch_assoc($fquery)
-                            ?>
-                            <div class="col-sm-3 icon_image">
-                                <img src="./icons/litecoin.svg" alt="" width="40">
-                                <h3>COINBASE LTC USD</h3>
-                            </div>
-
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Buying BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="litecoin_recive">
-                            </div>
-
-                            <div class="col-sm-1">
-                                <label for="firstName" class="form-label">Selling BDT </label>
-                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="litecoin_send">
-                            </div>
-
-
-                            <div class="col-sm-2">
-                                <label for="lastName" class="form-label">Reserv</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="litecoin_reserv">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="litecoin_min">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="litecoin_max">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimum USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="litecoin_minusd">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximum USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="litecoin_maxusd">
-                            </div>
-                        </div>
-
-
-                        <!-- tron getyaway -->
-
-                        <div class="row g-3 mb-3">
-                            <?php
-                            include('connection.php');
-                            $fsql = "SELECT * FROM `getaway` WHERE sno = 5 ";
-                            $fquery = mysqli_query($con, $fsql);
-                            $fatch = mysqli_fetch_assoc($fquery)
-                            ?>
-                            <div class="col-sm-3 icon_image">
-                                <img src="./icons/tron.svg" alt="" width="40">
-                                <h3>TRON TRX</h3>
-                            </div>
-
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Buying BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="tron_recive">
-                            </div>
-
-                            <div class="col-sm-1">
-                                <label for="firstName" class="form-label">Selling BDT </label>
-                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="tron_send">
-                            </div>
-
-
-                            <div class="col-sm-2">
-                                <label for="lastName" class="form-label">Reserv</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="tron_reserv">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="tron_min">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="tron_max">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimum TRX</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="tron_minusd">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximum TRX</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="tron_maxusd">
-                            </div>
-                        </div>
-
-                        <!-- thether -->
-                        <div class="row g-3 mb-3">
-                            <?php
-                            include('connection.php');
-                            $fsql = "SELECT * FROM `getaway` WHERE sno = 6 ";
-                            $fquery = mysqli_query($con, $fsql);
-                            $fatch = mysqli_fetch_assoc($fquery)
-                            ?>
-                            <div class="col-sm-3 icon_image">
-                                <img src="./icons/theter.svg" alt="" width="40">
-                                <h3>TETHER USDT</h3>
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Buying BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="theter_recive">
-                            </div>
-
-                            <div class="col-sm-1">
-                                <label for="firstName" class="form-label">Selling BDT </label>
-                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="theter_send">
-                            </div>
-
-
-                            <div class="col-sm-2">
-                                <label for="lastName" class="form-label">Reserv</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="theter_reserv">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="theter_min">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximun BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="theter_max">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimun USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="theter_minusd">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximun USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="theter_maxusd">
-                            </div>
-                        </div>
-
-                        <!-- coinbae -->
+                        <!-- paypal -->
                         <div class="row g-3 mb-3">
                             <?php
                             include('connection.php');
@@ -860,46 +848,44 @@ if (isset($_POST['payeer_send'])) {
                             $fquery = mysqli_query($con, $fsql);
                             $fatch = mysqli_fetch_assoc($fquery)
                             ?>
-
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/coinbase.svg" alt="" width="40">
-                                <h3>Coinbase BCH</h3>
+                                <img src="./icons/paypal.svg" alt="" width="40">
+                                <h3>Paypal USD</h3>
                             </div>
-
                             <div class="col-sm-1">
                                 <label for="lastName" class="form-label">Buying BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="coinbase_recive">
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="paypal_recive">
                             </div>
 
                             <div class="col-sm-1">
                                 <label for="firstName" class="form-label">Selling BDT </label>
-                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="coinbase_send">
+                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="paypal_send">
                             </div>
 
 
                             <div class="col-sm-2">
                                 <label for="lastName" class="form-label">Reserv</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="coinbase_reserv">
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="paypal_reserv">
                             </div>
                             <div class="col-sm-1">
                                 <label for="lastName" class="form-label">Minimum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="coinbase_min">
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="paypal_min">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="coinbase_max">
+                                <label for="lastName" class="form-label">Maximun BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="paypal_max">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimum USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="coinbase_minusd">
+                                <label for="lastName" class="form-label">Minimun USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="paypal_minusd">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximum USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="coinbase_maxusd">
+                                <label for="lastName" class="form-label">Maximun USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="paypal_maxusd">
                             </div>
                         </div>
 
-                        <!-- payeer getwawy -->
+                        <!-- adv cash -->
                         <div class="row g-3 mb-3">
                             <?php
                             include('connection.php');
@@ -909,41 +895,43 @@ if (isset($_POST['payeer_send'])) {
                             ?>
 
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/payeer.svg" alt="" width="40">
-                                <h3>PAYEER USD</h3>
+                                <img src="./icons/advcash.svg" alt="" width="40">
+                                <h3>AdvCash USD</h3>
                             </div>
+
                             <div class="col-sm-1">
                                 <label for="lastName" class="form-label">Buying BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="payeer_recive">
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['recive'] ?>" name="advcash_recive">
                             </div>
 
                             <div class="col-sm-1">
                                 <label for="firstName" class="form-label">Selling BDT </label>
-                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="payeer_send">
+                                <input type="number" step=0.000000001 class="form-control" id="firstName" placeholder="" value="<?php echo $fatch['send'] ?>" name="advcash_send">
                             </div>
 
 
                             <div class="col-sm-2">
                                 <label for="lastName" class="form-label">Reserv</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="payeer_reserv">
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['reserv'] ?>" name="advcash_reserv">
                             </div>
                             <div class="col-sm-1">
                                 <label for="lastName" class="form-label">Minimum BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="payeer_min">
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['min'] ?>" name="advcash_min">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximim BDT</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="payeer_max">
+                                <label for="lastName" class="form-label">Maximum BDT</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['max'] ?>" name="advcash_max">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Minimim USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="payeer_minusd">
+                                <label for="lastName" class="form-label">Minimum USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['minusd'] ?>" name="advcash_minusd">
                             </div>
                             <div class="col-sm-1">
-                                <label for="lastName" class="form-label">Maximim USD</label>
-                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="payeer_maxusd">
+                                <label for="lastName" class="form-label">Maximum USD</label>
+                                <input type="number" step=0.000000001 class="form-control" id="lastName" placeholder="" value="<?php echo $fatch['maxusd'] ?>" name="advcash_maxusd">
                             </div>
                         </div>
+
                         <!-- <button type="submit" class="btn btn-primary my-3">Submit</button> -->
                         <button type="submit" class="btn btn-warning my-3" name="update">Update</button>
                     </form>

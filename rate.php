@@ -1,3 +1,27 @@
+<?php
+// buy function
+function rate($rate)
+{
+    include('connection.php');
+    $bsql = "SELECT * FROM `getaway` WHERE sno = $rate";
+    $bquery = mysqli_query($con, $bsql);
+    $bfetch = mysqli_fetch_assoc($bquery);
+    echo $bfetch['recive'];
+};
+
+// sell function
+function sellrate($sellrate)
+{
+    include('connection.php');
+    $bsql = "SELECT * FROM `getaway` WHERE sno = $sellrate";
+    $bquery = mysqli_query($con, $bsql);
+    $bfetch = mysqli_fetch_assoc($bquery);
+    echo $bfetch['send'];
+};
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -133,49 +157,7 @@
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    95 BDT
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Perfect Money
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/bkash.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Bkash Personal BDT
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    96 BDT
+                                    <?php rate(4) ?> BDT
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
@@ -196,7 +178,7 @@
                             <td>
                                 <?php
                                 include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                                 $bquery = mysqli_query($con, $bsql);
                                 $bfetch = mysqli_fetch_assoc($bquery);
                                 // echo $bfetch['send'];
@@ -217,20 +199,20 @@
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    10 BDT
+                                    <?php rate(5) ?> BDT
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    1 TRX
+                                    1 USD
                                 </h4>
                             </td>
                             <td>
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/tron.svg" width="28px" alt="">
+                                    <img src="./icons/payoneer.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tron TRX
+                                        Payoneer
                                     </h4>
 
                                 </div>
@@ -243,7 +225,7 @@
                                 $bfetch = mysqli_fetch_assoc($bquery);
                                 // echo $bfetch['send'];
                                 ?>
-                                <?php echo $bfetch['reserv'] ?> TRX
+                                <?php echo $bfetch['reserv'] ?> USD
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
@@ -259,7 +241,7 @@
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    97 BDT
+                                    <?php rate(6) ?> BDT
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
@@ -270,9 +252,9 @@
                             </td>
                             <td>
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/theter.svg" width="28px" alt="">
+                                    <img src="./icons/tron.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tether USDT (TRC 20)
+                                        Perfect Money
                                     </h4>
 
                                 </div>
@@ -301,7 +283,7 @@
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    96 BDT
+                                    <?php rate(7) ?> BDT
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
@@ -312,9 +294,9 @@
                             </td>
                             <td>
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/coinbase.svg" width="28px" alt="">
+                                    <img src="./icons/paypal.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Coinbase BCH
+                                       Paypal
                                     </h4>
 
                                 </div>
@@ -331,7 +313,6 @@
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
-
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
@@ -344,7 +325,7 @@
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    95 BDT
+                                    <?php rate(8) ?> BDT
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
@@ -355,9 +336,9 @@
                             </td>
                             <td>
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
+                                    <img src="./icons/advcash.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Coinbase LTC
+                                        Adv Cash
                                     </h4>
 
                                 </div>
@@ -365,7 +346,7 @@
                             <td>
                                 <?php
                                 include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
                                 $bquery = mysqli_query($con, $bsql);
                                 $bfetch = mysqli_fetch_assoc($bquery);
                                 // echo $bfetch['send'];
@@ -418,9 +399,6 @@
 
                         </tr>
                     </thead>
-
-
-
                     <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
 
                         <tr class="text-gray-700 dark:text-gray-400">
@@ -435,7 +413,7 @@
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    95 BDT
+                                    <?php rate(4) ?> BDT
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
@@ -446,9 +424,611 @@
                             </td>
                             <td>
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
+                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payeer
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/nagad.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Nagad Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(5) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/payoneer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payoneer
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/nagad.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Nagad Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(6) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/tron.svg" width="28px" alt="">
                                     <h4 class="send_am">
                                         Perfect Money
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/nagad.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Nagad Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(7) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/paypal.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                       Paypal
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/nagad.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Nagad Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(8) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/advcash.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Adv Cash
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+        <!-- upay money section start here -->
+
+        <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
+            <div class="w-full overflow-x-auto">
+                <table class="w-full whitespace-no-wrap">
+
+
+                    <thead>
+                        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                            <th class="px-4 py-3" colspan="6">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal BDT
+                                    </h4>
+                                </div>
+                            </th>
+                            <!-- <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th> -->
+
+                        </tr>
+                    </thead>
+
+                    <thead>
+                        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                            <th class="px-4 py-3">Currency Send </th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3">Currency Recive</th>
+                            <th class="px-4 py-3">Our Reserve</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(4) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payeer
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(5) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/payoneer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payoneer
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(6) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/tron.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Perfect Money
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(7) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/paypal.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                       Paypal
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal BDT
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php rate(8) ?> BDT
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/advcash.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Adv Cash
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> USD
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <!-- Payeer section -->
+
+        <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
+            <div class="w-full overflow-x-auto">
+                <table class="w-full whitespace-no-wrap">
+
+
+                    <thead>
+                        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                            <th class="px-4 py-3" colspan="6">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payeer USD
+                                    </h4>
+                                </div>
+                            </th>
+                            <!-- <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th> -->
+
+                        </tr>
+                    </thead>
+
+                    <thead>
+                        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                            <th class="px-4 py-3">Currency Send </th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3"></th>
+                            <th class="px-4 py-3">Currency Recive</th>
+                            <th class="px-4 py-3">Our Reserve</th>
+
+
+                        </tr>
+                    </thead>
+
+
+
+                    <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payeer USD
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php sellrate(4) ?> BDT
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/bkash.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Bkash Personal
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 1";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> BDT
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payeer USD
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php sellrate(4) ?> BDT
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/nagad.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Nagad Personal
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 2";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> BDT
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Payeer USD
+                                    </h4>
+
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php sellrate(4) ?> BDT
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal
                                     </h4>
 
                                 </div>
@@ -461,221 +1041,12 @@
                                 $bfetch = mysqli_fetch_assoc($bquery);
                                 // echo $bfetch['send'];
                                 ?>
-                                <?php echo $bfetch['reserv'] ?> USD
+                                <?php echo $bfetch['reserv'] ?> BDT
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/nagad.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Nagad Personal BDT
-                                    </h4>
+                   
 
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    96 BDT
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/payeer.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Payeer
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/nagad.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Nagad Personal BDT
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    10 BDT
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 TRX
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/tron.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Tron TRX
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> TRX
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/nagad.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Nagad Personal BDT
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    97 BDT
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/theter.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Tether USDT (TRC 20)
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/nagad.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Nagad Personal BDT
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    96 BDT
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/coinbase.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase BCH
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/nagad.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Nagad Personal BDT
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    95 BDT
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase LTC
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
 
                     </tbody>
                 </table>
@@ -683,9 +1054,8 @@
 
         </div>
 
+        <!-- Payoneer section here -->
 
-
-        <!-- perfect money section start here -->
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
             <div class="w-full overflow-x-auto">
@@ -696,9 +1066,9 @@
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3" colspan="6">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
+                                    <img src="./icons/payoneer.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Perfect Money USD
+                                        Payoneer USD
                                     </h4>
                                 </div>
                             </th>
@@ -729,9 +1099,9 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
+                                    <img src="./icons/payoneer.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Perfect Money USD
+                                        Payoneer USD
                                     </h4>
 
                                 </div>
@@ -744,7 +1114,7 @@
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    87 BDT
+                                    <?php sellrate(5) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -757,7 +1127,7 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 1";
                                 $bquery = mysqli_query($con, $bsql);
@@ -771,9 +1141,9 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
+                                    <img src="./icons/payoneer.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Perfect Money USD
+                                        Payoneer USD
                                     </h4>
 
                                 </div>
@@ -786,7 +1156,7 @@
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    87 BDT
+                                    <?php sellrate(5) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -799,7 +1169,7 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 2";
                                 $bquery = mysqli_query($con, $bsql);
@@ -813,9 +1183,9 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
+                                    <img src="./icons/payoneer.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Perfect Money USD
+                                        Payoneer USD
                                     </h4>
 
                                 </div>
@@ -828,292 +1198,32 @@
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    0.94 USD
+                                    <?php sellrate(5) ?> BDT
                                 </h4>
                             </td>
                             <td>
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Payeer
+                                        Upay Personal
                                     </h4>
 
                                 </div>
                             </td>
                             <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Perfect Money USD
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    0.94 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase LTC
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno =4 ";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-
-
-        <!-- tilecoin section -->
-
-        <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
-            <div class="w-full overflow-x-auto">
-                <table class="w-full whitespace-no-wrap">
-
-
-                    <thead>
-                        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                            <th class="px-4 py-3" colspan="6">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase LTC USD
-                                    </h4>
-                                </div>
-                            </th>
-                            <!-- <th class="px-4 py-3"></th>
-                            <th class="px-4 py-3"></th>
-                            <th class="px-4 py-3"></th> -->
-
-                        </tr>
-                    </thead>
-
-                    <thead>
-                        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                            <th class="px-4 py-3">Currency Send </th>
-                            <th class="px-4 py-3"></th>
-                            <th class="px-4 py-3"></th>
-                            <th class="px-4 py-3"></th>
-                            <th class="px-4 py-3">Currency Recive</th>
-                            <th class="px-4 py-3">Our Reserve</th>
-
-
-                        </tr>
-                    </thead>
-
-
-
-                    <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase LTC USD
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    86 BDT
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/bkash.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Bkash Personal
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 1";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> BDT
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase LTC USD
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    86 BDT
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/nagad.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Nagad Personal
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 2";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> BDT
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase LTC USD
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    0.93 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/theter.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-
-                                        Tether USDT (TRC 20)
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
-                                include('connection.php');
-                                $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
-                                $bquery = mysqli_query($con, $bsql);
-                                $bfetch = mysqli_fetch_assoc($bquery);
-                                // echo $bfetch['send'];
-                                ?>
-                                <?php echo $bfetch['reserv'] ?> USD
-                                <!-- 0.0528 USD -->
-                            </td>
-                        </tr>
-
-                        <tr class="text-gray-700 dark:text-gray-400">
-                            <td class="px-3 py-3">
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/litecoin.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Coinbase LTC USD
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                                <h4 class="send_am">
-                                    1 USD
-                                </h4>
-                            </td>
-                            <td><i class="fas fa-chevron-right"></i></td>
-                            <td>
-                                <h4 class="send_am">
-                                    0.96 USD
-                                </h4>
-                            </td>
-                            <td>
-                                <div class="flex items-center text-sm">
-                                    <img src="./icons/perfect.svg" width="28px" alt="">
-                                    <h4 class="send_am">
-                                        Perfect Money
-                                    </h4>
-
-                                </div>
-                            </td>
-                            <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
                                 $bquery = mysqli_query($con, $bsql);
                                 $bfetch = mysqli_fetch_assoc($bquery);
                                 // echo $bfetch['send'];
                                 ?>
-                                <?php echo $bfetch['reserv'] ?> USD
+                                <?php echo $bfetch['reserv'] ?> BDT
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
+                   
+
 
                     </tbody>
                 </table>
@@ -1121,8 +1231,8 @@
 
         </div>
 
-        <!-- tron section here -->
 
+        <!-- perfect money section start -->
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
             <div class="w-full overflow-x-auto">
@@ -1133,9 +1243,9 @@
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3" colspan="6">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/tron.svg" width="28px" alt="">
+                                    <img src="./icons/perfect.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tron TRX
+                                        Perfect Money USD
                                     </h4>
                                 </div>
                             </th>
@@ -1166,22 +1276,22 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/tron.svg" width="28px" alt="">
+                                    <img src="./icons/perfect.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tron TRX
+                                        Perfect Money USD
                                     </h4>
 
                                 </div>
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    1 TRX
+                                    1 USD
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    6.85 BDT
+                                    <?php sellrate(6) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -1194,36 +1304,36 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 1";
                                 $bquery = mysqli_query($con, $bsql);
                                 $bfetch = mysqli_fetch_assoc($bquery);
                                 // echo $bfetch['send'];
                                 ?>
-                                <?php echo $bfetch['reserv'] ?> BBDT
+                                <?php echo $bfetch['reserv'] ?> BDT
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/tron.svg" width="28px" alt="">
+                                    <img src="./icons/perfect.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tron TRX
+                                        Perfect Money USD
                                     </h4>
 
                                 </div>
                             </td>
                             <td>
                                 <h4 class="send_am">
-                                    1 TRX
+                                    1 USD
                                 </h4>
                             </td>
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    6.85 BDT
+                                    <?php sellrate(6) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -1236,7 +1346,7 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 2";
                                 $bquery = mysqli_query($con, $bsql);
@@ -1247,8 +1357,49 @@
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/perfect.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Perfect Money USD
+                                    </h4>
 
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php sellrate(6) ?> BDT
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal
+                                    </h4>
 
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> BDT
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                   
 
 
                     </tbody>
@@ -1257,8 +1408,7 @@
 
         </div>
 
-
-        <!-- theter section start -->
+        <!-- Paypal section  -->
 
         <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
             <div class="w-full overflow-x-auto">
@@ -1269,9 +1419,9 @@
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3" colspan="6">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/theter.svg" width="28px" alt="">
+                                    <img src="./icons/paypal.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tether USDT (TRC 20) USD
+                                        Paypal USD
                                     </h4>
                                 </div>
                             </th>
@@ -1302,9 +1452,9 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/theter.svg" width="28px" alt="">
+                                    <img src="./icons/paypal.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tether USDT (TRC 20) USD
+                                        Paypal USD
                                     </h4>
 
                                 </div>
@@ -1317,7 +1467,7 @@
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    88 BDT
+                                    <?php sellrate(7) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -1330,7 +1480,7 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 1";
                                 $bquery = mysqli_query($con, $bsql);
@@ -1344,9 +1494,9 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/theter.svg" width="28px" alt="">
+                                    <img src="./icons/paypal.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Tether USDT (TRC 20) USD
+                                        Paypal USD
                                     </h4>
 
                                 </div>
@@ -1359,7 +1509,7 @@
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    88 BDT
+                                    <?php sellrate(7) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -1372,7 +1522,7 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 2";
                                 $bquery = mysqli_query($con, $bsql);
@@ -1383,8 +1533,49 @@
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/paypal.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Paypal USD
+                                    </h4>
 
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php sellrate(7) ?> BDT
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal
+                                    </h4>
 
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> BDT
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                   
 
 
                     </tbody>
@@ -1393,9 +1584,9 @@
 
         </div>
 
-        <!-- payeer section  -->
+           <!-- Adv cash section  -->
 
-        <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
+           <div class="w-full overflow-hidden rounded-lg shadow-xs mt-5">
             <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap">
 
@@ -1404,9 +1595,9 @@
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3" colspan="6">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <img src="./icons/advcash.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Payeer USD
+                                        AdvCash USD
                                     </h4>
                                 </div>
                             </th>
@@ -1437,9 +1628,9 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <img src="./icons/advcash.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Payeer USD
+                                        AdvCash USD
                                     </h4>
 
                                 </div>
@@ -1452,7 +1643,7 @@
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    87 BDT
+                                    <?php sellrate(8) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -1465,7 +1656,7 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 1";
                                 $bquery = mysqli_query($con, $bsql);
@@ -1479,9 +1670,9 @@
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-3 py-3">
                                 <div class="flex items-center text-sm">
-                                    <img src="./icons/payeer.svg" width="28px" alt="">
+                                    <img src="./icons/advcash.svg" width="28px" alt="">
                                     <h4 class="send_am">
-                                        Payeer USD
+                                        AdvCash USD
                                     </h4>
 
                                 </div>
@@ -1494,7 +1685,7 @@
                             <td><i class="fas fa-chevron-right"></i></td>
                             <td>
                                 <h4 class="send_am">
-                                    87 BDT
+                                    <?php sellrate(8) ?> BDT
                                 </h4>
                             </td>
                             <td>
@@ -1507,7 +1698,7 @@
                                 </div>
                             </td>
                             <td>
-                            <?php
+                                <?php
                                 include('connection.php');
                                 $bsql = "SELECT * FROM `getaway` WHERE sno = 2";
                                 $bquery = mysqli_query($con, $bsql);
@@ -1518,8 +1709,49 @@
                                 <!-- 0.0528 USD -->
                             </td>
                         </tr>
+                        <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-3 py-3">
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/advcash.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        AdvCash USD
+                                    </h4>
 
+                                </div>
+                            </td>
+                            <td>
+                                <h4 class="send_am">
+                                    1 USD
+                                </h4>
+                            </td>
+                            <td><i class="fas fa-chevron-right"></i></td>
+                            <td>
+                                <h4 class="send_am">
+                                    <?php sellrate(8) ?> BDT
+                                </h4>
+                            </td>
+                            <td>
+                                <div class="flex items-center text-sm">
+                                    <img src="./icons/upay.svg" width="28px" alt="">
+                                    <h4 class="send_am">
+                                        Upay Personal
+                                    </h4>
 
+                                </div>
+                            </td>
+                            <td>
+                                <?php
+                                include('connection.php');
+                                $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                                $bquery = mysqli_query($con, $bsql);
+                                $bfetch = mysqli_fetch_assoc($bquery);
+                                // echo $bfetch['send'];
+                                ?>
+                                <?php echo $bfetch['reserv'] ?> BDT
+                                <!-- 0.0528 USD -->
+                            </td>
+                        </tr>
+                   
 
 
                     </tbody>
@@ -1534,80 +1766,9 @@
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

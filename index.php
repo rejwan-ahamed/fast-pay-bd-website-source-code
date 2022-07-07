@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['exc'])) {
     $send = $_POST['send'];
     $recive = $_POST['recive'];
@@ -47,7 +48,35 @@ if (isset($_POST['exc'])) {
     <!-- mainfest file here -->
     <link rel="manifest" href="manifest.json">
 
-    <title>welcome</title>
+    <!-- bootsatrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+
+    <!-- seo start here -->
+
+    <!-- Primary Meta Tags -->
+    <title>FastPay BD. Best Online Money Exchange Service.</title>
+    <meta name="title" content="FastPay BD. Best Online Money Exchange Service.">
+    <meta name="description" content="Exchange your money fast and easily with FastPay BD.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metatags.io/">
+    <meta property="og:title" content="FastPay BD. Best Online Money Exchange Service.">
+    <meta property="og:description" content="Exchange your money fast and easily with FastPay BD.">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEol3LG0-IccB9TKSO40PPT-5cvncsUDfdSnCtuEQRg6Nca4S4LUG4wlmrlSqbu62jZuHNcidN6EJ2wDP8EWy7koevf_rTXt0ME_CC7O-IVdILnKDAuMMRVTB2954oILYk5Fzo6ku1Nnln36wk_P3ePNlYwz01en5nV73788TsQRXAt7OIYc7SNpwM/s16000/banner.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://metatags.io/">
+    <meta property="twitter:title" content="FastPay BD. Best Online Money Exchange Service.">
+    <meta property="twitter:description" content="Exchange your money fast and easily with FastPay BD.">
+    <meta property="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEol3LG0-IccB9TKSO40PPT-5cvncsUDfdSnCtuEQRg6Nca4S4LUG4wlmrlSqbu62jZuHNcidN6EJ2wDP8EWy7koevf_rTXt0ME_CC7O-IVdILnKDAuMMRVTB2954oILYk5Fzo6ku1Nnln36wk_P3ePNlYwz01en5nV73788TsQRXAt7OIYc7SNpwM/s16000/banner.jpg">
+
+
+    <!-- seo end here -->
+
+    <title>FastPay BD</title>
 </head>
 
 <body>
@@ -56,7 +85,7 @@ if (isset($_POST['exc'])) {
 
     <!-- notice  -->
     <section class="notice">
-        <marquee behavior="" direction="" class="sp_notice">আমাদের trustexchangebd.com এ আপনাকে স্বাগতম। আমাদের ওয়েবসাইট টি বাংলাদেশের রাষ্ট্রীয় আইনের প্রতি শ্রদ্ধাশীল। শুধুমাত্র ফ্রিল্যান্সারদের সুবিধার ক্ষেত্রে সার্ভিস দিয়ে থাকে। আমাদের অফিস টাইম প্রতিদিন সকাল ১১ টা থেকে রাত ১১ টা পর্যন্ত। শুক্রবার নামাজের জন্য ১২:৩০ থেকে ২:৩০ পর্যন্ত সকল লেনদেন বন্ধ। ৫-৩০ মিনিটের মধ্যে পেমেন্ট না পেলে what'sapp অথবা লাইভ chat এ যোগাযোগ করুন। </marquee>
+        <marquee behavior="" direction="" class="sp_notice">আমাদের fastpaybd.com এ আপনাকে স্বাগতম। আমাদের ওয়েবসাইট টি বাংলাদেশের রাষ্ট্রীয় আইনের প্রতি শ্রদ্ধাশীল। শুধুমাত্র ফ্রিল্যান্সারদের সুবিধার ক্ষেত্রে সার্ভিস দিয়ে থাকে। আমাদের অফিস টাইম প্রতিদিন সকাল ১১ টা থেকে রাত ১১ টা পর্যন্ত। শুক্রবার নামাজের জন্য ১২:৩০ থেকে ২:৩০ পর্যন্ত সকল লেনদেন বন্ধ। ৫-৩০ মিনিটের মধ্যে পেমেন্ট না পেলে whatsapp অথবা লাইভ chat এ যোগাযোগ করুন। </marquee>
     </section>
 
 
@@ -72,11 +101,11 @@ if (isset($_POST['exc'])) {
                 <a class="navbar-brand" href="notice.php">Notice</a>
                 <a class="navbar-brand" href="help.php">Help</a>
                 <a class="navbar-brand" href="contact.php">Contact</a>
-                <a class="navbar-brand" href="user.php">User</a>
+                <a class="navbar-brand user-main-bg" href="user.php"><i class="bi bi-person-fill"></i> User</a>
             </div>
             <div class="nav_right">
-                <a href="user_login.php"><button type="button" class="btn">Login</button></a>
-                <a href="user_regester.php"><button type="button" class="btn btn-primary">Register</button></a>
+                <a href="user_login.php"><button type="button" class="btn" id="login">Login</button></a>
+                <a href="user_regester.php"><button type="button" class="btn btn-primary" id="register">Register</button></a>
             </div>
         </div>
     </section>
@@ -84,7 +113,7 @@ if (isset($_POST['exc'])) {
     <!-- nav for mobile -->
     <section class="mobile_nav">
         <div id="mySidenav" class="sidenav">
-            <div>
+            <div class="mobile-nav-res">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <!-- <a href="#">Exchange</a> -->
                 <a href="index.html">Exchange</a>
@@ -92,7 +121,7 @@ if (isset($_POST['exc'])) {
                 <a href="notice.php">Notice</a>
                 <a href="help.php">Help</a>
                 <a href="contact.php">Contact</a>
-                <a href="user.php">User</a>
+                <a href="user.php" class="user-mobile"><i class="bi bi-person-fill"></i> User</a>
             </div>
 
 
@@ -172,39 +201,6 @@ if (isset($_POST['exc'])) {
         </div>
     </section>
 
-    <!-- hero section here -->
-
-    <section class="main_hero">
-
-        <div class="hero_section">
-            <div class="hrro_left">
-                <div class="hero_sub">
-                    <h4>Best money exchange website in bangladesh</h4>
-                </div>
-                <div class="hero_heding">
-                    <h1>Reliable money
-                        exchange website
-                    </h1>
-                </div>
-                <div class="hero_para">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been
-                        the industry's standard dummy text ever since the 1500s,</p>
-                </div>
-
-                <div class="hero_but"><a href="#exchange"><button type="button" class="btn btn-primary">Android <i class="fab fa-android"></i></button></a> </div>
-
-            </div>
-            <div class="hero_right">
-                <div class="hero_img">
-                    <img src="./2.svg" alt="main image" loading="lazy">
-                </div>
-
-            </div>
-        </div>
-
-
-    </section>
 
     <!-- exchange section -->
 
@@ -221,40 +217,56 @@ if (isset($_POST['exc'])) {
                 <div class="row ecchange_row ">
                     <div class="col-md-4 ex-1">
                         <label for="send" class="form-label">Send <i class="bi bi-arrow-up-circle"></i></label>
-                        <select class="form-select" id="send" required="" name="send">
-                            <option>Bkash Personal</option>
-                            <option>Nagad Personal</option>
-                            <option>Coinbase</option>
-                            <option>Tron</option>
-                            <option>Payeer</option>
-                            <option>Tether</option>
-                            <option>Perfect money</option>
-                            <option>Litecoin</option>
 
-                        </select>
-
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text icon"><img src="./icons/bkash.svg" alt="sender img" srcset="" id="sender-img"></div>
+                                </div>
+                                <select class="form-select sender" id="send" required="" name="send" onchange="getvaluse();">
+                                    <option>Bkash Personal</option>
+                                    <option>Nagad Personal</option>
+                                    <option>Upay Personal</option>
+                                    <option>Payeer</option>
+                                    <option>Payoneer</option>
+                                    <option>Perfect Money</option>
+                                    <option>Paypal</option>
+                                    <option>AdvCash</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-4 ex-2">
+
+
                         <label for="state" class="form-label">Recive <i class="bi bi-arrow-down-circle"></i></label>
-                        <select class="form-select" id="recive" required="" name="recive">
-                            <option>Tron</option>
-                            <option>Bkash Personal</option>
-                            <option>Nagad Personal</option>
-                            <option>Coinbase</option>
-                            <option>Payeer</option>
-                            <option>Tether</option>
-                            <option>Perfect money</option>
-                            <option>Litecoin</option>
-                        </select>
-
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text icon"><img src="./icons/payeer.svg" alt="reciver img" srcset="" id="reciver-img"></div>
+                            </div>
+                            <select class="form-select reciver" id="recive" required="" name="recive" onchange="getvaluser();">
+                                <option>Payeer</option>
+                                <option>Bkash Personal</option>
+                                <option>Nagad Personal</option>
+                                <option>Upay Personal</option>
+                                <option>Payoneer</option>
+                                <option>Perfect Money</option>
+                                <option>Paypal</option>
+                                <option>AdvCash</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="exchange_button d-grid gap-2  mx-auto ">
-                        <button class="btn btn-primary" name="exc" type="submit">Exchange <i class="fas fa-sync-alt"></i></button>
-                    </div>
                 </div>
-            </form>
+
+
+                <div class="exchange_button d-grid gap-2  mx-auto ">
+                    <button class="btn btn-primary" name="exc" type="submit">Exchange <i class="fas fa-sync-alt"></i></button>
+                </div>
+        </div>
+        </form>
         </div>
     </section>
 
@@ -304,10 +316,10 @@ if (isset($_POST['exc'])) {
     <!-- site info -->
     <section class="site_info">
         <div class="site_info_hed">
-            <h2>The most reliable money exchange platform</h2>
+            <h2>The most reliable money exchange platform.</h2>
         </div>
         <div class="site_info_sub">
-            <h3>why cripto-x should be your first choise</h3>
+            <h3>why Fast Pay BD should be your first choise.</h3>
         </div>
 
         <div class="site_info_main">
@@ -326,7 +338,7 @@ if (isset($_POST['exc'])) {
                 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
                 <lord-icon src="https://cdn.lordicon.com/qrbokoyz.json" trigger="loop" delay="3000" colors="primary:#121331,secondary:#0052ff" style="width:100px;height:100px">
                 </lord-icon>
-                <h3>Get best retorns</h3>
+                <h3>Get best returns</h3>
                 <h4>We store the vast majority of the digital assets in secure offline storage.</h4>
             </div>
             <div class="info1">
@@ -342,80 +354,9 @@ if (isset($_POST['exc'])) {
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -466,10 +407,11 @@ if (isset($_POST['exc'])) {
         }
         setInterval(function() {
             loadXMLDoc();
-        }, 1000);
+        }, 5000);
 
         window.onload = loadXMLDoc;
     </script>
+    <script src="./img-chenger.js"></script>
 
 </body>
 

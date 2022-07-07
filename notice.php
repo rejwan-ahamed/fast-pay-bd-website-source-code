@@ -103,27 +103,41 @@ $nfetch = mysqli_fetch_assoc($nquery);
         $nsql = "SELECT * FROM `notice` ORDER BY sno DESC LIMIT 10";
         $nquery = mysqli_query($con, $nsql);
 
-        while ($nfetch = mysqli_fetch_assoc($nquery)) {
+        $row = "SELECT * FROM `notice`";
+        $rowQuery = mysqli_query($con, $row);
+        $mainrow = mysqli_num_rows($rowQuery);
+        if ($mainrow == 0) {
+            $nonotice = '<div class="no-notice">
+            <h3 class="notice-title">No Notice Available Right Now.</h3>
+        </div>';
+        } else {
+            while ($nfetch = mysqli_fetch_assoc($nquery)) {
         ?>
-            <main class="notice px-3">
-                <div class="container">
+                <main class="notice px-3">
+                    <div class="container">
 
-                    <div class="date mt-5">
-                        <div class="date_st">
-                            <h4 class="date_main"><?php echo $nfetch['date'] ?></h4>
+                        <div class="date mt-5">
+                            <div class="date_st">
+                                <h4 class="date_main"><?php echo $nfetch['date'] ?></h4>
+                            </div>
                         </div>
+                        <h1 class="mt-2 heding"><?php echo $nfetch['sub'] ?></h1>
+                        <p class="main_notice"><?php echo $nfetch['body'] ?></p>
+
+
+
                     </div>
-                    <h1 class="mt-2 heding"><?php echo $nfetch['sub'] ?></h1>
-                    <p class="main_notice"><?php echo $nfetch['body'] ?></p>
-
-                    
-
-                </div>
-            </main>
+                </main>
 
         <?php
-        }
+            }
+        };
         ?>
+
+        <?php if (isset($nonotice)) {
+            echo $nonotice;
+        } ?>
+
 
     </section>
 
@@ -138,82 +152,11 @@ $nfetch = mysqli_fetch_assoc($nquery);
 
 
     <!-- footer -->
-    <section class="main_footer_sec notice footer">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
+    <?php
+    include("footer.php")
+    ?>
 
 
-            </div>
-        </div>
-
-        <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
-    </section>
-
-    
 
     <!-- Optional JavaScript; choose one of the two! -->
 

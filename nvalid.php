@@ -114,80 +114,9 @@
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

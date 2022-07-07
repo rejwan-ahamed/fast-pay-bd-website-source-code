@@ -9,6 +9,9 @@ if (isset($_POST['sign'])) {
     $email = $_POST['email'];
     $password1 = $_POST['password'];
 
+    // echo $email;
+    // echo $password1;
+
     $sql = "SELECT * FROM `user_register` WHERE email = '$email' AND password = '$password1'";
     $query = mysqli_query($con, $sql);
 
@@ -17,10 +20,6 @@ if (isset($_POST['sign'])) {
         session_start();
         $_SESSION['loggedn'] = true;
         $_SESSION['email'] = $email;
-        // sesson time
-        $_SESSION['start'] = time(); // Taking now logged in time.
-        // Ending a session in 30 minutes from the starting time.
-        $_SESSION['expire'] = $_SESSION['start'] + (1 * 60);
         header('Location:user.php');
     } else {
         $war = '<div class="p-3">
@@ -81,7 +80,7 @@ if (isset($_POST['sign'])) {
             <div class="nav_middle">
                 <a class="navbar-brand" href="index.php">Exchange</a>
                 <a class="navbar-brand" href="#">Rates</a>
-                <a class="navbar-brand" href="nav.css">Notice</a>
+                <a class="navbar-brand" href="notice.php">Notice</a>
                 <a class="navbar-brand" href="help.php">Help</a>
                 <a class="navbar-brand" href="contact.php">Contact</a>
             </div>
@@ -100,7 +99,7 @@ if (isset($_POST['sign'])) {
                 <!-- <a href="#">Exchange</a> -->
                 <a href="index.php">Exchange</a>
                 <a href="#">Rates</a>
-                <a href="nav.css">Notice</a>
+                <a href="notice.php">Notice</a>
                 <a href="help.php">Help</a>
                 <a href="contact.php">Contact</a>
             </div>
@@ -150,7 +149,8 @@ if (isset($_POST['sign'])) {
 
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit" name="sign">Sign in</button>
-                <p class="mt-5 mb-3 text-muted">Dont have an account <a href="user_regester.php">Register</a></p>
+                <p class="mt-5 mb-3 mb-1 text-muted">Dont have an account <a href="user_regester.php">Register</a></p>
+                <p class="mt-5 mb-3 mt-1 text-muted"><a href="forget-email.php">Forget Password</a></p>
             </form>
         </main>
 
@@ -167,80 +167,9 @@ if (isset($_POST['sign'])) {
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -126,43 +126,21 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         <?php
                         $s_s = $_SESSION['ex_send'];
                         $r_r = $_SESSION['ex_recive'];
-                        // bkash to trom exchange case
-                        if ($s_s == "Bkash Personal"  && $r_r == "Tron") {
+                        // bkash to payeer exchange case
+                        if ($s_s == "Bkash Personal"  && $r_r == "Payeer") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
+                        }
+
+                        // bkash to Payoneer exchange case
+                        elseif ($s_s == "Bkash Personal"  && $r_r == "Payoneer") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-                            $a_res =  $bfetch['reserv'] . "TRX";
-                            $a_min =  $bfetch['min'] . "BDT";
-                            $a_max =  $bfetch['max'] . "BDT";
-                        }
-
-                        // bkash to coinbase exchange case
-                        elseif ($s_s == "Bkash Personal"  && $r_r == "Coinbase") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-                            $a_res =  $bfetch['reserv'] . "USD";
-                            $a_min =  $bfetch['min'] . "BDT";
-                            $a_max =  $bfetch['max'] . "BDT";
-                        }
-
-                        // bkash to payeer exchange case
-                        elseif ($s_s == "Bkash Personal"  && $r_r == "Payeer") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-                            $a_res =  $bfetch['reserv'] . "USD";
-                            $a_min =  $bfetch['min'] . "BDT";
-                            $a_max =  $bfetch['max'] . "BDT";
-                        }
-
-                        // bkash to Tether exchange case
-                        elseif ($s_s == "Bkash Personal"  && $r_r == "Tether") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
                             $a_res =  $bfetch['reserv'] . "USD";
@@ -171,9 +149,9 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
 
                         // bkash to Perfect money exchange case
-                        elseif ($s_s == "Bkash Personal"  && $r_r == "Perfect money") {
+                        elseif ($s_s == "Bkash Personal"  && $r_r == "Perfect Money") {
                             include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
                             $a_res =  $bfetch['reserv'] . "USD";
@@ -181,30 +159,8 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_max =  $bfetch['max'] . "BDT";
                         }
 
-                        // bkash to Litecoin exchange case
-                        elseif ($s_s == "Bkash Personal"  && $r_r == "Litecoin") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-                            $a_res =  $bfetch['reserv'] . "USD";
-                            $a_min =  $bfetch['min'] . "BDT";
-                            $a_max =  $bfetch['max'] . "BDT";
-                        }
-
-                        // Nagad to Tron exchange case
-                        elseif ($s_s == "Nagad Personal"  && $r_r == "Tron") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-                            $a_res =  $bfetch['reserv'] . "USD";
-                            $a_min =  $bfetch['min'] . "BDT";
-                            $a_max =  $bfetch['max'] . "BDT";
-                        }
-
-                        // Nagad to coinbase exchange case
-                        elseif ($s_s == "Nagad Personal"  && $r_r == "Coinbase") {
+                        // bkash to Paypal exchange case
+                        elseif ($s_s == "Bkash Personal"  && $r_r == "Paypal") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
                             $bquery = mysqli_query($con, $bsql);
@@ -213,11 +169,23 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_min =  $bfetch['min'] . "BDT";
                             $a_max =  $bfetch['max'] . "BDT";
                         }
+
+                        // bkash to AdvCash exchange case
+                        elseif ($s_s == "Bkash Personal"  && $r_r == "AdvCash") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
+                        }
+
 
                         // Nagad to Payeer exchange case
                         elseif ($s_s == "Nagad Personal"  && $r_r == "Payeer") {
                             include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
                             $a_res =  $bfetch['reserv'] . "USD";
@@ -225,8 +193,19 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_max =  $bfetch['max'] . "BDT";
                         }
 
-                        // Nagad to Tether exchange case
-                        elseif ($s_s == "Nagad Personal"  && $r_r == "Tether") {
+                        // Nagad to Payoneer exchange case
+                        elseif ($s_s == "Nagad Personal"  && $r_r == "Payoneer") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
+                        }
+
+                        // Nagad to Perfect Money exchange case
+                        elseif ($s_s == "Nagad Personal"  && $r_r == "Perfect Money") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
                             $bquery = mysqli_query($con, $bsql);
@@ -236,10 +215,10 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_max =  $bfetch['max'] . "BDT";
                         }
 
-                        // Nagad to Perfect money exchange case
-                        elseif ($s_s == "Nagad Personal"  && $r_r == "Perfect money") {
+                        // Nagad to Paypal exchange case
+                        elseif ($s_s == "Nagad Personal"  && $r_r == "Paypal") {
                             include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
                             $a_res =  $bfetch['reserv'] . "USD";
@@ -247,8 +226,20 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_max =  $bfetch['max'] . "BDT";
                         }
 
-                        // Nagad to Litecoin exchange case
-                        elseif ($s_s == "Nagad Personal"  && $r_r == "Litecoin") {
+                        // Nagad to AdvCash exchange case
+                        elseif ($s_s == "Nagad Personal"  && $r_r == "AdvCash") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
+                        }
+
+
+                        // Upay to Payeer exchange case
+                        elseif ($s_s == "Upay Personal"  && $r_r == "Payeer") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                             $bquery = mysqli_query($con, $bsql);
@@ -258,83 +249,56 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_max =  $bfetch['max'] . "BDT";
                         }
 
-                        // selling case
-
-                        // tron to bkash selling
-                        elseif ($s_s == "Tron"  && $r_r == "Bkash Personal") {
+                        // Upay to Payoneer exchange case
+                        elseif ($s_s == "Upay Personal"  && $r_r == "Payoneer") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
-
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
-                            $bqueryb = mysqli_query($con, $bsqlb);
-                            $bfetchb = mysqli_fetch_assoc($bqueryb);
-                            $a_res =  $bfetchb['reserv'] . "BDT";
-                            $a_min =  $bfetch['minusd'] . "TRX";
-                            $a_max =  $bfetch['maxusd'] . "TRX";
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
                         }
 
-                        // Coinbase to bkash selling
-                        elseif ($s_s == "Coinbase"  && $r_r == "Bkash Personal") {
+                        // Upay to Perfect Money exchange case
+                        elseif ($s_s == "Upay Personal"  && $r_r == "Perfect Money") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
+                        }
+
+                        // Upay to Paypal exchange case
+                        elseif ($s_s == "Upay Personal"  && $r_r == "Paypal") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
-
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
-                            $bqueryb = mysqli_query($con, $bsqlb);
-                            $bfetchb = mysqli_fetch_assoc($bqueryb);
-                            $a_res =  $bfetchb['reserv'] . "BDT";
-                            $a_min =  $bfetch['minusd'] . "USD";
-                            $a_max =  $bfetch['maxusd'] . "USD";
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
                         }
+
+                        // Upay to AdvCash exchange case
+                        elseif ($s_s == "Upay Personal"  && $r_r == "AdvCash") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+                            $a_res =  $bfetch['reserv'] . "USD";
+                            $a_min =  $bfetch['min'] . "BDT";
+                            $a_max =  $bfetch['max'] . "BDT";
+                        }
+
+
+                        // selling case
 
                         // Payeer to bkash selling
                         elseif ($s_s == "Payeer"  && $r_r == "Bkash Personal") {
                             include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
-                            $bqueryb = mysqli_query($con, $bsqlb);
-                            $bfetchb = mysqli_fetch_assoc($bqueryb);
-                            $a_res =  $bfetchb['reserv'] . "BDT";
-                            $a_min =  $bfetch['minusd'] . "USD";
-                            $a_max =  $bfetch['maxusd'] . "USD";
-                        }
-                        // Tether to bkash selling
-                        elseif ($s_s == "Tether"  && $r_r == "Bkash Personal") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
-                            $bqueryb = mysqli_query($con, $bsqlb);
-                            $bfetchb = mysqli_fetch_assoc($bqueryb);
-                            $a_res =  $bfetchb['reserv'] . "BDT";
-                            $a_min =  $bfetch['minusd'] . "USD";
-                            $a_max =  $bfetch['maxusd'] . "USD";
-                        }
-                        // Perfect money to bkash selling
-                        elseif ($s_s == "Perfect money"  && $r_r == "Bkash Personal") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
-                            $bqueryb = mysqli_query($con, $bsqlb);
-                            $bfetchb = mysqli_fetch_assoc($bqueryb);
-                            $a_res =  $bfetchb['reserv'] . "BDT";
-                            $a_min =  $bfetch['minusd'] . "USD";
-                            $a_max =  $bfetch['maxusd'] . "USD";
-                        }
-                        // Litecoin to bkash selling
-                        elseif ($s_s == "Litecoin"  && $r_r == "Bkash Personal") {
-                            include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
@@ -347,8 +311,81 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_max =  $bfetch['maxusd'] . "USD";
                         }
 
-                        // tron to Nagad selling
-                        elseif ($s_s == "Tron"  && $r_r == "Nagad Personal") {
+                        // Payoneer to bkash selling
+                        elseif ($s_s == "Payoneer"  && $r_r == "Bkash Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+
+                        // Perfect Money to bkash selling
+                        elseif ($s_s == "Perfect Money"  && $r_r == "Bkash Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+                        // Paypal to bkash selling
+                        elseif ($s_s == "Paypal"  && $r_r == "Bkash Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+                        // AdvCash to bkash selling
+                        elseif ($s_s == "AdvCash"  && $r_r == "Bkash Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 1";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+
+
+                        // Payeer to Nagad selling
+                        elseif ($s_s == "Payeer"  && $r_r == "Nagad Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 2";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+                        // Payoneer to Nagad selling
+                        elseif ($s_s == "Payoneer"  && $r_r == "Nagad Personal") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
                             $bquery = mysqli_query($con, $bsql);
@@ -361,36 +398,8 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_min =  $bfetch['minusd'] . "USD";
                             $a_max =  $bfetch['maxusd'] . "USD";
                         }
-                        // coinbase to Nagad selling
-                        elseif ($s_s == "Coinbase"  && $r_r == "Nagad Personal") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 2";
-                            $bqueryb = mysqli_query($con, $bsqlb);
-                            $bfetchb = mysqli_fetch_assoc($bqueryb);
-                            $a_res =  $bfetchb['reserv'] . "BDT";
-                            $a_min =  $bfetch['minusd'] . "USD";
-                            $a_max =  $bfetch['maxusd'] . "USD";
-                        }
-                        // payeer to Nagad selling
-                        elseif ($s_s == "Payeer"  && $r_r == "Nagad Personal") {
-                            include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
-                            $bquery = mysqli_query($con, $bsql);
-                            $bfetch = mysqli_fetch_assoc($bquery);
-
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 2";
-                            $bqueryb = mysqli_query($con, $bsqlb);
-                            $bfetchb = mysqli_fetch_assoc($bqueryb);
-                            $a_res =  $bfetchb['reserv'] . "BDT";
-                            $a_min =  $bfetch['minusd'] . "USD";
-                            $a_max =  $bfetch['maxusd'] . "USD";
-                        }
-                        // theter to Nagad selling
-                        elseif ($s_s == "Tether"  && $r_r == "Nagad Personal") {
+                        // Perfect Money to Nagad selling
+                        elseif ($s_s == "Perfect Money"  && $r_r == "Nagad Personal") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
                             $bquery = mysqli_query($con, $bsql);
@@ -403,10 +412,10 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_min =  $bfetch['minusd'] . "USD";
                             $a_max =  $bfetch['maxusd'] . "USD";
                         }
-                        // perfect money to Nagad selling
-                        elseif ($s_s == "Perfect money"  && $r_r == "Nagad Personal") {
+                        // Paypal to Nagad selling
+                        elseif ($s_s == "Paypal"  && $r_r == "Nagad Personal") {
                             include('connection.php');
-                            $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -417,22 +426,94 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             $a_min =  $bfetch['minusd'] . "USD";
                             $a_max =  $bfetch['maxusd'] . "USD";
                         }
-                        // Litecoin to Nagad selling
-                        elseif ($s_s == "Litecoin"  && $r_r == "Nagad Personal") {
+                        // AdvCash to Nagad selling
+                        elseif ($s_s == "AdvCash"  && $r_r == "Nagad Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 2";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+
+
+
+
+                        // Payeer to Upay selling
+                        elseif ($s_s == "Payeer"  && $r_r == "Upay Personal") {
                             include('connection.php');
                             $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                             $bquery = mysqli_query($con, $bsql);
                             $bfetch = mysqli_fetch_assoc($bquery);
 
-                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 2";
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 3";
                             $bqueryb = mysqli_query($con, $bsqlb);
                             $bfetchb = mysqli_fetch_assoc($bqueryb);
                             $a_res =  $bfetchb['reserv'] . "BDT";
                             $a_min =  $bfetch['minusd'] . "USD";
                             $a_max =  $bfetch['maxusd'] . "USD";
                         }
+                        // Payoneer to Upay selling
+                        elseif ($s_s == "Payoneer"  && $r_r == "Upay Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
 
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 3";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+                        // Perfect Money to Upay selling
+                        elseif ($s_s == "Perfect Money"  && $r_r == "Upay Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
 
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 3";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+                        // Paypal to Upay selling
+                        elseif ($s_s == "Paypal"  && $r_r == "Upay Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 3";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
+                        // AdvCash to Upay selling
+                        elseif ($s_s == "AdvCash"  && $r_r == "Upay Personal") {
+                            include('connection.php');
+                            $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                            $bquery = mysqli_query($con, $bsql);
+                            $bfetch = mysqli_fetch_assoc($bquery);
+
+                            $bsqlb = "SELECT * FROM `getaway` WHERE sno = 3";
+                            $bqueryb = mysqli_query($con, $bsqlb);
+                            $bfetchb = mysqli_fetch_assoc($bqueryb);
+                            $a_res =  $bfetchb['reserv'] . "BDT";
+                            $a_min =  $bfetch['minusd'] . "USD";
+                            $a_max =  $bfetch['maxusd'] . "USD";
+                        }
 
 
 
@@ -488,11 +569,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                     $s_s = $_SESSION['ex_send'];
                     $r_r = $_SESSION['ex_recive'];
 
-                    // case 1  bkash to tron trx
-                    if ($s_s == "Bkash Personal"  && $r_r == "Tron") {
+                    // case 1  bkash to Payeer USD
+                    if ($s_s == "Bkash Personal"  && $r_r == "Payeer") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
                         $r_am =  $bfetch['recive'];
@@ -505,12 +586,12 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                         </script> ";
                         $send_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/tron.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/payeer.svg" alt="" width="40">';
 
                         // resever max amount
                         $s_min = $bfetch['min'] . "BDT";
                         $s_max = $bfetch['max'] . "BDT";
-                        $r_reserv = $bfetch['reserv'] . "TRX";
+                        $r_reserv = $bfetch['reserv'] . "USD";
                         if (isset($_POST['next'])) {
                             $_send_am = $_POST['send'];
                             $_recive_am = $_POST['recive'];
@@ -535,11 +616,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // bkash case coinbase
-                    elseif ($s_s == "Bkash Personal"  && $r_r == "Coinbase") {
+                    // bkash case Payoneer
+                    elseif ($s_s == "Bkash Personal"  && $r_r == "Payoneer") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -553,7 +634,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     </script> ";
                         $send_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/coinbase.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/payoneer.svg" alt="" width="40">';
 
                         // resever max amount
                         $s_min = $bfetch['min'] . "BDT";
@@ -583,59 +664,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // bkash case payeer
-                    elseif ($s_s == "Bkash Personal"  && $r_r == "Payeer") {
+                    // bkash case Perfect Money
+                    elseif ($s_s == "Bkash Personal"  && $r_r == "Perfect Money") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
-
-                        $r_am =  $bfetch['recive'];
-
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value/$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
-                        $send_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/payeer.svg" alt="" width="40">';
-
-                        // resever max amount
-                        $s_min = $bfetch['min'] . "BDT";
-                        $s_max = $bfetch['max'] . "BDT";
-                        $r_reserv = $bfetch['reserv'] . "USD";
-                        if (isset($_POST['next'])) {
-                            $_send_am = $_POST['send'];
-                            $_recive_am = $_POST['recive'];
-
-                            if ($_send_am < $bfetch['min']) {
-                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_send_am > $bfetch['max']) {
-                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_POST['recive'] >  $bfetch['reserv']) {
-                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                </div> </div>';
-                            } else {
-                                $_SESSION['user_send'] = $_send_am;
-                                $_SESSION['user_recive'] = $_recive_am;
-                                echo '<script>window.location.href = "exstap2.php";</script>';
-                            }
-                        }
-                    }
-
-                    // bkash case perfect money
-                    elseif ($s_s == "Bkash Personal"  && $r_r == "Perfect money") {
-
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -679,111 +712,109 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // bkash case tether
-                    elseif ($s_s == "Bkash Personal"  && $r_r == "Tether") {
-
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
-
-                        $r_am =  $bfetch['recive'];
-
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value/$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
-                        $send_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/theter.svg" alt="" width="40">';
-
-                        // resever max amount
-                        $s_min = $bfetch['min'] . "BDT";
-                        $s_max = $bfetch['max'] . "BDT";
-                        $r_reserv = $bfetch['reserv'] . "USD";
-                        if (isset($_POST['next'])) {
-                            $_send_am = $_POST['send'];
-                            $_recive_am = $_POST['recive'];
-
-                            if ($_send_am < $bfetch['min']) {
-                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_send_am > $bfetch['max']) {
-                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_POST['recive'] >  $bfetch['reserv']) {
-                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                </div> </div>';
-                            } else {
-                                $_SESSION['user_send'] = $_send_am;
-                                $_SESSION['user_recive'] = $_recive_am;
-                                echo '<script>window.location.href = "exstap2.php";</script>';
-                            }
-                        }
-                    }
-
-                    // bkash case litecoin
-                    elseif ($s_s == "Bkash Personal"  && $r_r == "Litecoin") {
-
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
-
-                        $r_am =  $bfetch['recive'];
-
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value/$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
-                        $send_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/litecoin.svg" alt="" width="40">';
-
-                        // resever max amount
-                        $s_min = $bfetch['min'] . "BDT";
-                        $s_max = $bfetch['max'] . "BDT";
-                        $r_reserv = $bfetch['reserv'] . "USD";
-                        if (isset($_POST['next'])) {
-                            $_send_am = $_POST['send'];
-                            $_recive_am = $_POST['recive'];
-
-                            if ($_send_am < $bfetch['min']) {
-                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_send_am > $bfetch['max']) {
-                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_POST['recive'] >  $bfetch['reserv']) {
-                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                </div> </div>';
-                            } else {
-                                $_SESSION['user_send'] = $_send_am;
-                                $_SESSION['user_recive'] = $_recive_am;
-                                echo '<script>window.location.href = "exstap2.php";</script>';
-                            }
-                        }
-                    }
-
-
-
-
-                    // blash sell case
-                    // bkash case coinbase
-                    elseif ($s_s == "Coinbase" &&  $r_r == "Bkash Personal") {
+                    // bkash case Paypal
+                    elseif ($s_s == "Bkash Personal"  && $r_r == "Paypal") {
 
                         include('connection.php');
                         $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value/$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/paypal.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_POST['recive'] >  $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+                    // bkash case AdvCash
+                    elseif ($s_s == "Bkash Personal"  && $r_r == "AdvCash") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value/$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/advcash.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_POST['recive'] >  $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+
+                    // blash sell case
+                    // bkash case Payeer
+                    elseif ($s_s == "Payeer" &&  $r_r == "Bkash Personal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -796,7 +827,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                     </script> ";
-                        $send_icon = '<img src="./icons/coinbase.svg" alt="" width="40">';
+                        $send_icon = '<img src="./icons/payeer.svg" alt="" width="40">';
                         $recive_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
 
                         // resever max amount
@@ -833,11 +864,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // bkash case payeer
-                    elseif ($s_s == "Payeer"  && $r_r == "Bkash Personal") {
+                    // bkash case Payoneer
+                    elseif ($s_s == "Payoneer"  && $r_r == "Bkash Personal") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -855,7 +886,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                     </script> ";
-                        $send_icon = '<img src="./icons/payeer.svg" alt="" width="40">';
+                        $send_icon = '<img src="./icons/payoneer.svg" alt="" width="40">';
                         $recive_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
 
                         // resever max amount
@@ -892,11 +923,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // bkash case perfect money
-                    elseif ($s_s == "Perfect money"  && $r_r == "Bkash Personal") {
+                    // bkash case perfect Money
+                    elseif ($s_s == "Perfect Money"  && $r_r == "Bkash Personal") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -946,11 +977,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // bkash case tether
-                    elseif ($s_s == "Tether"  && $r_r == "Bkash Personal") {
+                    // bkash case Paypal
+                    elseif ($s_s == "Paypal"  && $r_r == "Bkash Personal") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -963,7 +994,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                     </script> ";
-                        $send_icon = '<img src="./icons/theter.svg" alt="" width="40">';
+                        $send_icon = '<img src="./icons/paypal.svg" alt="" width="40">';
                         $recive_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
 
                         // resever max amount
@@ -1000,11 +1031,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // bkash case litecoin
-                    elseif ($s_s == "Litecoin"  && $r_r == "Bkash Personal") {
+                    // bkash case AdvCash
+                    elseif ($s_s == "AdvCash"  && $r_r == "Bkash Personal") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -1017,7 +1048,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                     </script> ";
-                        $send_icon = '<img src="./icons/litecoin.svg" alt="" width="40">';
+                        $send_icon = '<img src="./icons/advcash.svg" alt="" width="40">';
                         $recive_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
 
                         // resever max amount
@@ -1053,59 +1084,34 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             }
                         }
                     }
-                    // bkash case tron
-                    elseif ($s_s == "Tron"  && $r_r == "Bkash Personal") {
 
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
 
-                        $r_am =  $bfetch['send'];
 
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value*$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
-                        $send_icon = '<img src="./icons/tron.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/bkash.svg" alt="" width="40">';
 
-                        // resever max amount
-                        $s_min = $bfetch['minusd'] . "TRX";
-                        $s_max = $bfetch['maxusd'] . "TRX";
 
-                        // BDT reserv
-                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 1";
-                        $bqueryr = mysqli_query($con, $bsqlr);
-                        $bfetchr = mysqli_fetch_assoc($bqueryr);
 
-                        $r_reserv = $bfetchr['reserv'] . "BDT";
-                        if (isset($_POST['next'])) {
-                            $_send_am = $_POST['send'];
-                            $_recive_am = $_POST['recive'];
 
-                            if ($_send_am <  $bfetch['minusd']) {
-                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                      <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
-                                      </div> </div>';
-                            } elseif ($_send_am > $bfetch['maxusd']) {
-                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                      <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                      </div> </div>';
-                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
-                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                  <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                  </div> </div>';
-                            } else {
-                                $_SESSION['user_send'] = $_send_am;
-                                $_SESSION['user_recive'] = $_recive_am;
-                                echo '<script>window.location.href = "exstap2.php";</script>';
-                            }
-                        }
-                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1119,10 +1125,10 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
 
                     // nagad buying case
                     // Nagad to torn
-                    elseif ($s_s == "Nagad Personal"  && $r_r == "Tron") {
+                    elseif ($s_s == "Nagad Personal"  && $r_r == "Payeer") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -1135,102 +1141,6 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                        </script> ";
-                        $send_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/tron.svg" alt="" width="40">';
-
-                        // resever max amount
-                        $s_min = $bfetch['min'] . "BDT";
-                        $s_max = $bfetch['max'] . "BDT";
-                        $r_reserv = $bfetch['reserv'] . "TRX";
-                        if (isset($_POST['next'])) {
-                            $_send_am = $_POST['send'];
-                            $_recive_am = $_POST['recive'];
-
-                            if ($_send_am < $bfetch['min']) {
-                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_send_am > $bfetch['max']) {
-                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
-                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                </div> </div>';
-                            } else {
-                                $_SESSION['user_send'] = $_send_am;
-                                $_SESSION['user_recive'] = $_recive_am;
-                                echo '<script>window.location.href = "exstap2.php";</script>';
-                            }
-                        }
-                    }
-
-                    // Nagad to coinbase
-                    elseif ($s_s == "Nagad Personal"  && $r_r == "Coinbase") {
-
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
-
-                        $r_am =  $bfetch['recive'];
-
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value/$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
-                        $send_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/coinbase.svg" alt="" width="40">';
-
-                        // resever max amount
-                        $s_min = $bfetch['min'] . "BDT";
-                        $s_max = $bfetch['max'] . "BDT";
-                        $r_reserv = $bfetch['reserv'] . "USD";
-                        if (isset($_POST['next'])) {
-                            $_send_am = $_POST['send'];
-                            $_recive_am = $_POST['recive'];
-
-                            if ($_send_am < $bfetch['min']) {
-                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_send_am > $bfetch['max']) {
-                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                    </div> </div>';
-                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
-                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                </div> </div>';
-                            } else {
-                                $_SESSION['user_send'] = $_send_am;
-                                $_SESSION['user_recive'] = $_recive_am;
-                                echo '<script>window.location.href = "exstap2.php";</script>';
-                            }
-                        }
-                    }
-
-                    // Nagad to payeer
-                    elseif ($s_s == "Nagad Personal"  && $r_r == "Payeer") {
-
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
-
-                        $r_am =  $bfetch['recive'];
-
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value/$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
                         $send_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
                         $recive_icon = '<img src="./icons/payeer.svg" alt="" width="40">';
 
@@ -1261,11 +1171,12 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             }
                         }
                     }
-                    // Nagad to tether
-                    elseif ($s_s == "Nagad Personal"  && $r_r == "Tether") {
+
+                    // Nagad to Payoneer
+                    elseif ($s_s == "Nagad Personal"  && $r_r == "Payoneer") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -1279,13 +1190,41 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     </script> ";
                         $send_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/theter.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/payoneer.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
                     }
-                    // Nagad to perfect money
-                    elseif ($s_s == "Nagad Personal"  && $r_r == "Perfect money") {
+
+                    // Nagad to Perfect Money
+                    elseif ($s_s == "Nagad Personal"  && $r_r == "Perfect Money") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -1328,8 +1267,57 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             }
                         }
                     }
-                    // Nagad to litecoin
-                    elseif ($s_s == "Nagad Personal"  && $r_r == "Litecoin") {
+
+                    // Nagad to Paypal
+                    elseif ($s_s == "Nagad Personal"  && $r_r == "Paypal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                                            function mult(value) {
+                                                var x
+                                                x =value/$r_am;
+                                                document.getElementById('output').value = x;
+                                            }
+                                        </script> ";
+                        $send_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/paypal.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                                        </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                        <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                                        </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                                    </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+                    // Nagad to AdvCash
+                    elseif ($s_s == "Nagad Personal"  && $r_r == "AdvCash") {
 
                         include('connection.php');
                         $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
@@ -1346,7 +1334,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     </script> ";
                         $send_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/litecoin.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/advcash.svg" alt="" width="40">';
 
                         // resever max amount
                         $s_min = $bfetch['min'] . "BDT";
@@ -1379,86 +1367,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
 
                     // nagad selling case
 
-                    // tron to nagad
-                    elseif ($s_s == "Tron"  && $r_r == "Nagad Personal") {
-
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
-
-                        $r_am =  $bfetch['send'];
-
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value*$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
-                        $send_icon = '<img src="./icons/tron.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
-
-                        // resever max amount
-                        $s_min = $bfetch['minusd'] . "TRX";
-                        $s_max = $bfetch['maxusd'] . "TRX";
-
-                        // BDT reserv
-                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 2";
-                        $bqueryr = mysqli_query($con, $bsqlr);
-                        $bfetchr = mysqli_fetch_assoc($bqueryr);
-
-                        $r_reserv = $bfetchr['reserv'] . "BDT";
-                        if (isset($_POST['next'])) {
-                            $_send_am = $_POST['send'];
-                            $_recive_am = $_POST['recive'];
-
-                            if ($_send_am <  $bfetch['minusd']) {
-                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
-                                       </div> </div>';
-                            } elseif ($_send_am > $bfetch['maxusd']) {
-                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                       </div> </div>';
-                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
-                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
-                                   <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
-                                   </div> </div>';
-                            } else {
-                                $_SESSION['user_send'] = $_send_am;
-                                $_SESSION['user_recive'] = $_recive_am;
-                                echo '<script>window.location.href = "exstap2.php";</script>';
-                            }
-                        }
-                    }
-
-                    // coinbase to nagad
-                    elseif ($s_s == "Coinbase"  && $r_r == "Nagad Personal") {
-
-                        include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
-                        $bquery = mysqli_query($con, $bsql);
-                        $bfetch = mysqli_fetch_assoc($bquery);
-
-                        $r_am =  $bfetch['send'];
-
-                        echo " <script>
-                        function mult(value) {
-                            var x
-                            x =value*$r_am;
-                            document.getElementById('output').value = x;
-                        }
-                    </script> ";
-                        $send_icon = '<img src="./icons/coinbase.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
-                    }
-
-                    // payeer to nagad
+                    // Payeer to nagad
                     elseif ($s_s == "Payeer"  && $r_r == "Nagad Personal") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -1507,8 +1420,66 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             }
                         }
                     }
-                    // theter to nagad
-                    elseif ($s_s == "Tether"  && $r_r == "Nagad Personal") {
+
+
+                    // Payoneer to nagad
+                    elseif ($s_s == "Payoneer"  && $r_r == "Nagad Personal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['send'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value*$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/payoneer.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['minusd'] . "USD";
+                        $s_max = $bfetch['maxusd'] . "USD";
+
+                        // BDT reserv
+                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 2";
+                        $bqueryr = mysqli_query($con, $bsqlr);
+                        $bfetchr = mysqli_fetch_assoc($bqueryr);
+
+                        $r_reserv = $bfetchr['reserv'] . "BDT";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am <  $bfetch['minusd']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_send_am > $bfetch['maxusd']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                   <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                   </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+
+
+                    // Perfect Money to nagad
+                    elseif ($s_s == "Perfect Money"  && $r_r == "Nagad Personal") {
 
                         include('connection.php');
                         $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
@@ -1524,7 +1495,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                     </script> ";
-                        $send_icon = '<img src="./icons/theter.svg" alt="" width="40">';
+                        $send_icon = '<img src="./icons/Perfect.svg" alt="" width="40">';
                         $recive_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
 
                         // resever max amount
@@ -1560,12 +1531,11 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             }
                         }
                     }
-
-                    // perfect money to nagad
-                    elseif ($s_s == "Tether"  && $r_r == "Nagad Personal") {
+                    // Paypal to nagad
+                    elseif ($s_s == "Paypal"  && $r_r == "Nagad Personal") {
 
                         include('connection.php');
-                        $bsql = "SELECT * FROM `getaway` WHERE sno = 3";
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
                         $bquery = mysqli_query($con, $bsql);
                         $bfetch = mysqli_fetch_assoc($bquery);
 
@@ -1578,7 +1548,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                     </script> ";
-                        $send_icon = '<img src="./icons/perfect.svg" alt="" width="40">';
+                        $send_icon = '<img src="./icons/paypal.svg" alt="" width="40">';
                         $recive_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
 
                         // resever max amount
@@ -1615,8 +1585,369 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         }
                     }
 
-                    // litecoin money to nagad
-                    elseif ($s_s == "Litecoin"  && $r_r == "Nagad Personal") {
+                    // AdvCash to nagad
+                    elseif ($s_s == "AdvCash"  && $r_r == "Nagad Personal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['send'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value*$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/advcash.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['minusd'] . "USD";
+                        $s_max = $bfetch['maxusd'] . "USD";
+
+                        // BDT reserv
+                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 2";
+                        $bqueryr = mysqli_query($con, $bsqlr);
+                        $bfetchr = mysqli_fetch_assoc($bqueryr);
+
+                        $r_reserv = $bfetchr['reserv'] . "BDT";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am <  $bfetch['minusd']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_send_am > $bfetch['maxusd']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                   <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                   </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    // Upay buying case
+                    // Upay to torn
+                    elseif ($s_s == "Upay Personal"  && $r_r == "Payeer") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value/$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                       </script> ";
+                        $send_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/payeer.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+                    // Upay to Payoneer
+                    elseif ($s_s == "Upay Personal"  && $r_r == "Payoneer") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value/$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/payoneer.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+                    // Upay to Paypal
+                    elseif ($s_s == "Upay Personal"  && $r_r == "Paypal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value/$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/paypal.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+
+                    // Upay to Perfect Money
+                    elseif ($s_s == "Upay Personal"  && $r_r == "Perfect Money") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                                        function mult(value) {
+                                            var x
+                                            x =value/$r_am;
+                                            document.getElementById('output').value = x;
+                                        }
+                                    </script> ";
+                        $send_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/perfect.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                                    </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+                    // Upay to AdvCash
+                    elseif ($s_s == "Upay Personal"  && $r_r == "AdvCash") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['recive'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value/$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/advcash.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['min'] . "BDT";
+                        $s_max = $bfetch['max'] . "BDT";
+                        $r_reserv = $bfetch['reserv'] . "USD";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am < $bfetch['min']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_send_am > $bfetch['max']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                    <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                    </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetch['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+
+                    // Upay selling case
+
+                    // Payeer to Upay
+                    elseif ($s_s == "Payeer"  && $r_r == "Upay Personal") {
 
                         include('connection.php');
                         $bsql = "SELECT * FROM `getaway` WHERE sno = 4";
@@ -1632,15 +1963,232 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             document.getElementById('output').value = x;
                         }
                     </script> ";
-                        $send_icon = '<img src="./icons/litecoin.svg" alt="" width="40">';
-                        $recive_icon = '<img src="./icons/nagad.svg" alt="" width="40">';
+                        $send_icon = '<img src="./icons/payeer.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/upay.svg" alt="" width="40">';
 
                         // resever max amount
                         $s_min = $bfetch['minusd'] . "USD";
                         $s_max = $bfetch['maxusd'] . "USD";
 
                         // BDT reserv
-                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 2";
+                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 3";
+                        $bqueryr = mysqli_query($con, $bsqlr);
+                        $bfetchr = mysqli_fetch_assoc($bqueryr);
+
+                        $r_reserv = $bfetchr['reserv'] . "BDT";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am <  $bfetch['minusd']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_send_am > $bfetch['maxusd']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                   <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                   </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+                    // Payoneer to Upay
+                    elseif ($s_s == "Payoneer"  && $r_r == "Upay Personal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 5";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['send'];
+
+                        echo " <script>
+                                            function mult(value) {
+                                                var x
+                                                x =value*$r_am;
+                                                document.getElementById('output').value = x;
+                                            }
+                                        </script> ";
+                        $send_icon = '<img src="./icons/payoneer.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['minusd'] . "USD";
+                        $s_max = $bfetch['maxusd'] . "USD";
+
+                        // BDT reserv
+                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 3";
+                        $bqueryr = mysqli_query($con, $bsqlr);
+                        $bfetchr = mysqli_fetch_assoc($bqueryr);
+
+                        $r_reserv = $bfetchr['reserv'] . "BDT";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am <  $bfetch['minusd']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                           <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                                           </div> </div>';
+                            } elseif ($_send_am > $bfetch['maxusd']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                           <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                                           </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                                       </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+
+
+                    // Perfect Money to Upay
+                    elseif ($s_s == "Perfect Money"  && $r_r == "Upay Personal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 6";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['send'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value*$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/perfect.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['minusd'] . "USD";
+                        $s_max = $bfetch['maxusd'] . "USD";
+
+                        // BDT reserv
+                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 3";
+                        $bqueryr = mysqli_query($con, $bsqlr);
+                        $bfetchr = mysqli_fetch_assoc($bqueryr);
+
+                        $r_reserv = $bfetchr['reserv'] . "BDT";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am <  $bfetch['minusd']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_send_am > $bfetch['maxusd']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                   <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                   </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+                    // Paypal to Upay
+                    elseif ($s_s == "Paypal"  && $r_r == "Upay Personal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 7";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['send'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value*$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/paypal.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['minusd'] . "USD";
+                        $s_max = $bfetch['maxusd'] . "USD";
+
+                        // BDT reserv
+                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 3";
+                        $bqueryr = mysqli_query($con, $bsqlr);
+                        $bfetchr = mysqli_fetch_assoc($bqueryr);
+
+                        $r_reserv = $bfetchr['reserv'] . "BDT";
+                        if (isset($_POST['next'])) {
+                            $_send_am = $_POST['send'];
+                            $_recive_am = $_POST['recive'];
+
+                            if ($_send_am <  $bfetch['minusd']) {
+                                $war = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check minimum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_send_am > $bfetch['maxusd']) {
+                                $war1 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                       <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                       </div> </div>';
+                            } elseif ($_POST['recive'] > $bfetchr['reserv']) {
+                                $war2 = '<div class="p-2 mb-4"><div class="alert alert-warning" role="alert">
+                                   <i class="bi bi-exclamation-diamond-fill"></i>&nbsp; Please check maximum transaction amount.
+                                   </div> </div>';
+                            } else {
+                                $_SESSION['user_send'] = $_send_am;
+                                $_SESSION['user_recive'] = $_recive_am;
+                                echo '<script>window.location.href = "exstap2.php";</script>';
+                            }
+                        }
+                    }
+
+                    // AdvCash to Upay
+                    elseif ($s_s == "AdvCash"  && $r_r == "Upay Personal") {
+
+                        include('connection.php');
+                        $bsql = "SELECT * FROM `getaway` WHERE sno = 8";
+                        $bquery = mysqli_query($con, $bsql);
+                        $bfetch = mysqli_fetch_assoc($bquery);
+
+                        $r_am =  $bfetch['send'];
+
+                        echo " <script>
+                        function mult(value) {
+                            var x
+                            x =value*$r_am;
+                            document.getElementById('output').value = x;
+                        }
+                    </script> ";
+                        $send_icon = '<img src="./icons/advcash.svg" alt="" width="40">';
+                        $recive_icon = '<img src="./icons/upay.svg" alt="" width="40">';
+
+                        // resever max amount
+                        $s_min = $bfetch['minusd'] . "USD";
+                        $s_max = $bfetch['maxusd'] . "USD";
+
+                        // BDT reserv
+                        $bsqlr = "SELECT * FROM `getaway` WHERE sno = 3";
                         $bqueryr = mysqli_query($con, $bsqlr);
                         $bfetchr = mysqli_fetch_assoc($bqueryr);
 
@@ -1756,80 +2304,9 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

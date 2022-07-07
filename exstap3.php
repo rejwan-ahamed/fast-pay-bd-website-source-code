@@ -121,18 +121,18 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                 $s_simble = '<img src="./icons/bkash.svg" alt="" width="30">';
             } elseif ($s_s == "Nagad Personal") {
                 $s_simble = '<img src="./icons/nagad.svg" alt="" width="30">';
-            } elseif ($s_s == "Tron") {
-                $s_simble = '<img src="./icons/tron.svg" alt="" width="30">';
-            } elseif ($s_s == "Coinbase") {
-                $s_simble = '<img src="./icons/coinbase.svg" alt="" width="30">';
+            } elseif ($s_s == "Upay Personal") {
+                $s_simble = '<img src="./icons/upay.svg" alt="" width="30">';
             } elseif ($s_s == "Payeer") {
                 $s_simble = '<img src="./icons/payeer.svg" alt="" width="30">';
-            } elseif ($s_s == "Tether") {
-                $s_simble = '<img src="./icons/theter.svg" alt="" width="30">';
-            } elseif ($s_s == "Perfect money") {
+            } elseif ($s_s == "Payoneer") {
+                $s_simble = '<img src="./icons/payoneer.svg" alt="" width="30">';
+            } elseif ($s_s == "Perfect Money") {
                 $s_simble = '<img src="./icons/perfect.svg" alt="" width="30">';
-            } elseif ($s_s == "Litecoin") {
-                $s_simble = '<img src="./icons/litecoin.svg" alt="" width="30">';
+            } elseif ($s_s == "Paypal") {
+                $s_simble = '<img src="./icons/paypal.svg" alt="" width="30">';
+            } elseif ($s_s == "AdvCash") {
+                $s_simble = '<img src="./icons/advcash.svg" alt="" width="30">';
             }
 
 
@@ -142,18 +142,18 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                 $r_simble = '<img src="./icons/bkash.svg" alt="" width="30">';
             } elseif ($r_r == "Nagad Personal") {
                 $r_simble = '<img src="./icons/nagad.svg" alt="" width="30">';
-            } elseif ($r_r == "Tron") {
-                $r_simble = '<img src="./icons/tron.svg" alt="" width="30">';
-            } elseif ($r_r == "Coinbase") {
-                $r_simble = '<img src="./icons/coinbase.svg" alt="" width="30">';
+            } elseif ($r_r == "Upay Personal") {
+                $r_simble = '<img src="./icons/upay.svg" alt="" width="30">';
             } elseif ($r_r == "Payeer") {
                 $r_simble = '<img src="./icons/payeer.svg" alt="" width="30">';
-            } elseif ($r_r == "Tether") {
-                $r_simble = '<img src="./icons/theter.svg" alt="" width="30">';
-            } elseif ($r_r == "Perfect money") {
+            } elseif ($r_r == "Payoneer") {
+                $r_simble = '<img src="./icons/payoneer.svg" alt="" width="30">';
+            } elseif ($r_r == "Perfect Money") {
                 $r_simble = '<img src="./icons/perfect.svg" alt="" width="30">';
-            } elseif ($r_r == "Litecoin") {
-                $r_simble = '<img src="./icons/litecoin.svg" alt="" width="30">';
+            } elseif ($r_r == "Paypal") {
+                $r_simble = '<img src="./icons/paypal.svg" alt="" width="30">';
+            } elseif ($r_r == "AdvCash") {
+                $r_simble = '<img src="./icons/advcash.svg" alt="" width="30">';
             }
 
 
@@ -246,7 +246,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
             $pquery = mysqli_query($con,$psql);
             $pfetch = mysqli_fetch_assoc($pquery);
 
-            if ($s_s == "Perfect Money") {
+            if ($s_s == "Upay Personal") {
                $pt = $pfetch['account_id'];
             }
             ?>
@@ -257,7 +257,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
             $pquery = mysqli_query($con,$psql);
             $pfetch = mysqli_fetch_assoc($pquery);
 
-            if ($s_s == "Litecoin") {
+            if ($s_s == "Payeer") {
                $pt = $pfetch['account_id'];
             }
             ?>
@@ -268,7 +268,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
             $pquery = mysqli_query($con,$psql);
             $pfetch = mysqli_fetch_assoc($pquery);
 
-            if ($s_s == "Tron") {
+            if ($s_s == "Payoneer") {
                $pt = $pfetch['account_id'];
             }
             ?>
@@ -279,7 +279,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
             $pquery = mysqli_query($con,$psql);
             $pfetch = mysqli_fetch_assoc($pquery);
 
-            if ($s_s == "Tether") {
+            if ($s_s == "Perfect Money") {
                $pt = $pfetch['account_id'];
             }
             ?>
@@ -290,7 +290,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
             $pquery = mysqli_query($con,$psql);
             $pfetch = mysqli_fetch_assoc($pquery);
 
-            if ($s_s == "Coinbase") {
+            if ($s_s == "Paypal") {
                $pt = $pfetch['account_id'];
             }
             ?>
@@ -301,13 +301,13 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
             $pquery = mysqli_query($con,$psql);
             $pfetch = mysqli_fetch_assoc($pquery);
 
-            if ($s_s == "Payeer") {
+            if ($s_s == "AdvCash") {
                $pt = $pfetch['account_id'];
             }
             ?>
 
 
-            <p class="payment_details text-center">To confirm your order please pay <span class="hilite"> <?php echo $user_send . $user_send_s ?> in this number <span  style="color: #f91976;"><?php echo $pt ?></span>  via <span style="color: #f91976;"><?php echo $s_s ?></span> </span> Then enter your transaction ID in the given field and click on confirm.</p>
+            <p class="payment_details text-center">To confirm your order please pay <span class="hilite"> <?php echo $user_send ." ". $user_send_s ?> in this number <span  style="color: #f91976;"><?php echo $pt ?></span>  via <span style="color: #f91976;"><?php echo $s_s ?></span> </span> Then enter your transaction ID in the given field and click on confirm.</p>
         </div>
 
         <!-- transtion id submit form -->
@@ -326,80 +326,9 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

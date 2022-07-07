@@ -116,22 +116,18 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                     $r_r = $_SESSION['ex_recive'];
 
                     // send simble
-                    if ($s_s == "Bkash Personal" || $s_s == "Nagad Personal") {
+                    if ($s_s == "Bkash Personal" || $s_s == "Nagad Personal" || $s_s == "Upay Personal") {
                         $s_simble = "BDT";
-                    } elseif ($s_s == "Tron") {
-                        $s_simble = "TRX";
-                    } elseif ($s_s == "Coinbase" || $s_s == "Perfect money" || $s_s == "Payeer" || $s_s == "Tether" || $s_s == "Litecoin") {
+                    } elseif ($s_s == "Payeer" || $s_s == "Payoneer" || $s_s == "Perfect Money" || $s_s == "Paypal" || $s_s == "AdvCash") {
                         $s_simble = "USD";
                     } else {
                         echo "none";
                     }
                     // recive simble
 
-                    if ($r_r == "Bkash Personal" || $r_r == "Nagad Personal") {
+                    if ($r_r == "Bkash Personal" || $r_r == "Nagad Personal" || $r_r == "Upay Personal") {
                         $r_simble = "BDT";
-                    } elseif ($r_r == "Tron") {
-                        $r_simble = "TRX";
-                    } elseif ($r_r == "Coinbase" || $r_r == "Perfect money" || $r_r == "Payeer" || $r_r == "Tether" || $r_r == "Litecoin") {
+                    } elseif ($r_r == "Payeer" || $r_r == "Payoneer" || $r_r == "Perfect Money" || $r_r == "Paypal" || $r_r == "AdvCash") {
                         $r_simble = "USD";
                     } else {
                         echo "none";
@@ -164,7 +160,7 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         </div>
                         <span class="text-muted amu"> <?php
                                                         $sub = $_SESSION['user_recive'];
-                                                        echo substr($sub,0,5);
+                                                        echo substr($sub, 0, 5);
 
 
                                                         if (isset($r_simble)) {
@@ -267,18 +263,18 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                                     $tr_name = "Bkash Personal";
                                 } elseif ($r_r == "Nagad Personal") {
                                     $tr_name = "Nagad Personal";
-                                } elseif ($r_r == "Perfect money") {
-                                    $tr_name = "Perfect money";
+                                } elseif ($r_r == "Upay Personal") {
+                                    $tr_name = "Upay Personal";
                                 } elseif ($r_r == "Payeer") {
                                     $tr_name = "Payeer";
-                                } elseif ($r_r == "Tron") {
-                                    $tr_name = "Tron";
-                                } elseif ($r_r == "Tether") {
-                                    $tr_name = "Tether";
-                                } elseif ($r_r == "Coinbase") {
-                                    $tr_name = "Coinbase";
-                                } elseif ($r_r == "Litecoin") {
-                                    $tr_name = "Litecoin";
+                                } elseif ($r_r == "Payoneer") {
+                                    $tr_name = "Payoneer";
+                                } elseif ($r_r == "Perfect Money") {
+                                    $tr_name = "Perfect Money";
+                                } elseif ($r_r == "Paypal") {
+                                    $tr_name = "Paypal";
+                                } elseif ($r_r == "AdvCash") {
+                                    $tr_name = "AdvCash";
                                 }
 
                                 ?>
@@ -291,7 +287,62 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                <label class="form-check-label">I agree with the <span data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: #0052ff; cursor: pointer;">Terms and Conditions</span> </label>
+
+                                <!-- Button trigger modal -->
+                                <!-- Scrollable modal -->
+
+          
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Terms and Conditions</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>স্বাগতম:
+
+                                                    আমাদের ওয়েবসাইট এ লেনদেন করার জন্য আপনাকে আমাদের দেয়া কিছু শর্তাবলী অবশ্যই মানতে হবে।নিচে আমাদের শর্তাবলী সমূহ দেয়া হলো: <br> <br>
+
+                                                    1. আমরা বাংলাদেশ এর বাইরে কোনোভাবেই টাকা অথবা ডলার পাঠাই না। <br> <br>
+
+
+                                                    2.আমরা কোনো জুয়ারু কিংবা বাজি সাপোর্ট করি না। সে ক্ষেত্রে আপনি এটি প্রমাণিত আপনার ট্রান্সেকশন টি ব্লক করে দিবো এবং আইনানুগ ব্যবস্থা নিতে বাধ্য হব। <br> <br>
+
+
+                                                    3.অর্ডার করার সময় তাড়াহুড়া করবেন না এবং অর্ডার কমপ্লিট করার জন্য অ্যাডমিন কে বার বার নক করবেন না মাথায় রাখবেন এটি অনেক সেনসেটিভ একটি জিনিস ভুল হওয়ার সম্ভাবনা অনেক বেশি। আপনার ট্রান্সেকশন এ ভুল হলে সেটির দায়িত্ব আপনার। সুতরাং সাবধান <br> <br>
+
+
+                                                    4. কোনো স্প্যাম ট্রান্সেকশন করবেন না। এরকম কিছু আমরা দেখলে আপনার একাউন্ট সাথে সাথে ব্লক করা হবে। <br> <br>
+
+
+                                                    5.আপনি যদি প্রতারণা কারীর কেউ হন এবং এটি যদি আমাদের কাছে প্রমান থাকে তাহলে আমরা আপনার ট্রান্সেকশন টি ব্লক করবো প্রয়োজন এ আমরা আইন এর সহায়তা নিবো সুতরাং এটি থেকে সাবধানে থাকবেন। <br> <br>
+
+
+                                                    6. আমাদের কোম্পানি এর নাম কপি করে বিসনেস করা থেকে বিরত থাকুন। এরকম কিছু পেলে আমরা আইনানুগ ব্যবস্থা ১০০% নিবো। <br> <br>
+
+
+                                                    7.আমাদের কোম্পানি এর নামে মিথ্যা প্রচারণা থেকে বিরত থাকুন। এরকম কিছু পেলে আমরা আইনানুগ ব্যবস্থা ১০০% নিবো। সুতরাং এটি থেকে সাবধানে থাকবেন। <br> <br>
+
+
+                                                    8. আমাদের নাম দিয়ে কারো সাথে ফেসবুক অথবা অন্য কোনো মাধ্যমে কারো সাথে প্রতারণা করা থেকে বিরত থাকুন। এরকম কিছু পেলে অবশ্যই আমরা আইনানুগ ব্যবস্থা ১০০% নিবো। সুতরাং এটি থেকে সাবধানে থাকবেন।
+                                                    আমরা ওয়েবসাইট ছাড়া অন্য কোনো মাদ্ধমে লেনদেন করি না। উপরের সকল তথ্য অনুসারে আমাদের সকল গ্রাহক দেড় কে সাহায্য করার জন্য অনুরোধ করা হলো। <br> <br>
+
+                                                    9. এছাড়া যেকোনো অবৈধ ও খারাপ কাজে আমাদের দেয়া ডলার অথবা টাকা টি নয় সেজন্য ভুলেও আমাদের কে ব্যবহার করে কোনো অবৈধ কাজ করবেন না। আপনার সকল রেকর্ড(লাইভ চ্যাট এ কথা বলা ,কল রেকোর্ড ,IP এড্রেস ) আমাদের অফিসিয়াল সার্ভার এ স্টোর করা থাকবে বাংলাদেশ সরকার অথবা যেকোনো আইননানুগ কাজে আমরা তা দিতে বাধ্য। <br> <br>
+
+                                                    10. টাকা অথবা ডলার অবশ্যই আপনাকে আপনার নিজের একাউন্ট অথবা নাম্বার থেকে পাঠাতে হবে এবং গ্রহণ করতে হবে। অন্য কারণ একাউন্ট অথবা নম্বর থেকে টাকা অথবা ডলার পাঠালে আমাদের সার্ভিস চার্জ ও সেন্ডিং ফী কেটে বাকি টাকা অথবা ডলার ব্যাক দেয়া হবে এবং আপনার ID টি ব্যান করা হবে।
+
+                                                    এছাড়া যেকোনো সময় আমাদের নিয়ম এর পরিবর্তন হতে পারে এক্ষেত্রে অ্যাডমিন এর সিদ্ধান্তই চূড়ান্ত বলে বিবেচিত হবে। </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
 
@@ -313,80 +364,9 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal & privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

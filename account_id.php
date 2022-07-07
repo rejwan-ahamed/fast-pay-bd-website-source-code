@@ -303,7 +303,7 @@ if (isset($_POST['payeer_id'])) {
         <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div class="py-4 text-gray-500 dark:text-gray-400 my-5">
                 <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-                    coin-ex
+                    Fast Pay BD
                 </a>
                 <ul>
 
@@ -573,7 +573,7 @@ if (isset($_POST['payeer_id'])) {
 
                             <div class="col-sm-3 icon_image">
                                 <img src="./icons/bkash.svg" alt="" width="40">
-                                <h3>BKASH PERSONAL BDT</h3>
+                                <h3>BKASH Agent BDT</h3>
                             </div>
 
                             <div class="col-sm-3">
@@ -593,7 +593,7 @@ if (isset($_POST['payeer_id'])) {
                             ?>
                             <div class="col-sm-3 icon_image">
                                 <img src="./icons/nagad.svg" alt="" width="40">
-                                <h3>NAGAD PERSONAL BDT</h3>
+                                <h3>NAGAD Agent BDT</h3>
                             </div>
 
                             <div class="col-sm-3">
@@ -612,8 +612,8 @@ if (isset($_POST['payeer_id'])) {
                             $fatch = mysqli_fetch_assoc($fquery)
                             ?>
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/perfect.svg" alt="" width="40">
-                                <h3>PERFECT MONEY USD</h3>
+                                <img src="./icons/upay.svg" alt="" width="40">
+                                <h3>Upay Agent BDT</h3>
                             </div>
 
                             <div class="col-sm-3">
@@ -623,7 +623,7 @@ if (isset($_POST['payeer_id'])) {
                         </div>
 
 
-                        <!-- litecoin -->
+                        <!-- payeer -->
                         <div class="row g-3 mb-3">
                             <?php
                             include('connection.php');
@@ -632,8 +632,8 @@ if (isset($_POST['payeer_id'])) {
                             $fatch = mysqli_fetch_assoc($fquery)
                             ?>
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/litecoin.svg" alt="" width="40">
-                                <h3>COINBASE LTC USD</h3>
+                                <img src="./icons/payeer.svg" alt="" width="40">
+                                <h3>Payeer USD</h3>
                             </div>
 
                             <div class="col-sm-3">
@@ -643,7 +643,7 @@ if (isset($_POST['payeer_id'])) {
                         </div>
 
 
-                        <!-- tron getyaway -->
+                        <!-- payoneer getyaway -->
 
                         <div class="row g-3 mb-3">
                             <?php
@@ -653,8 +653,8 @@ if (isset($_POST['payeer_id'])) {
                             $fatch = mysqli_fetch_assoc($fquery)
                             ?>
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/tron.svg" alt="" width="40">
-                                <h3>TRON TRX</h3>
+                                <img src="./icons/payoneer.svg" alt="" width="40">
+                                <h3>Payoneer USD</h3>
                             </div>
 
                             <div class="col-sm-3">
@@ -663,7 +663,7 @@ if (isset($_POST['payeer_id'])) {
                             </div>
                         </div>
 
-                        <!-- thether -->
+                        <!-- perfect money -->
                         <div class="row g-3 mb-3">
                             <?php
                             include('connection.php');
@@ -672,8 +672,8 @@ if (isset($_POST['payeer_id'])) {
                             $fatch = mysqli_fetch_assoc($fquery)
                             ?>
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/theter.svg" alt="" width="40">
-                                <h3>TETHER USDT</h3>
+                                <img src="./icons/perfect.svg" alt="" width="40">
+                                <h3>Perfect Money USD</h3>
                             </div>
                             <div class="col-sm-3">
                                 <label for="lastName" class="form-label">Account ID</label>
@@ -681,7 +681,7 @@ if (isset($_POST['payeer_id'])) {
                             </div>
                         </div>
 
-                        <!-- coinbae -->
+                        <!-- Paypal -->
                         <div class="row g-3 mb-3">
                             <?php
                             include('connection.php');
@@ -691,8 +691,8 @@ if (isset($_POST['payeer_id'])) {
                             ?>
 
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/coinbase.svg" alt="" width="40">
-                                <h3>Coinbase BCH</h3>
+                                <img src="./icons/paypal.svg" alt="" width="40">
+                                <h3>Paypal USD</h3>
                             </div>
 
                             <div class="col-sm-3">
@@ -711,8 +711,8 @@ if (isset($_POST['payeer_id'])) {
                             ?>
 
                             <div class="col-sm-3 icon_image">
-                                <img src="./icons/payeer.svg" alt="" width="40">
-                                <h3>PAYEER USD</h3>
+                                <img src="./icons/advcash.svg" alt="" width="40">
+                                <h3>Adv Cash USD</h3>
                             </div>
                             <div class="col-sm-3">
                                 <label for="lastName" class="form-label">Account ID</label>

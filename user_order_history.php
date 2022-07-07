@@ -157,55 +157,46 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
                         // $fatch = mysqli_fetch_assoc($query);
 
                         while ($fatch = mysqli_fetch_assoc($query)) {
-                            if ($fatch['send'] == 'Tron') {
-                                $send = '<img src="./icons/tron.svg" width="28px" alt="">';
-                            } elseif ($fatch['send'] == 'Litecoin') {
-                                $send = '<img src="./icons/litecoin.svg" width="28px" alt="">';
+                            if ($fatch['send'] == 'Bkash Personal') {
+                                $send = '<img src="./icons/bkash.svg" width="28px" alt="">';
+                            } elseif ($fatch['send'] == 'Nagad Personal') {
+                                $send = '<img src="./icons/nagad.svg" width="28px" alt="">';
+                            } elseif ($fatch['send'] == 'Upay Personal') {
+                                $send = '<img src="./icons/upay.svg" width="28px" alt="">';
                             } elseif ($fatch['send'] == 'Payeer') {
                                 $send = '<img src="./icons/payeer.svg" width="28px" alt="">';
-                            } elseif ($fatch['send'] == 'Perfect money') {
+                            } elseif ($fatch['send'] == 'Payoneer') {
+                                $send = '<img src="./icons/payoneer.svg" width="28px" alt="">';
+                            } elseif ($fatch['send'] == 'Perfect Money') {
                                 $send = '<img src="./icons/perfect.svg" width="28px" alt="">';
-                            } 
-                            elseif ($fatch['send'] == 'Coinbase') {
-                                $send = '<img src="./icons/coinbase.svg" width="28px" alt="">';
+                            } elseif ($fatch['send'] == 'Paypal') {
+                                $send = '<img src="./icons/paypal.svg" width="28px" alt="">';
+                            } elseif ($fatch['send'] == 'AdvCash') {
+                                $send = '<img src="./icons/advcash.svg" width="28px" alt="">';
                             }
-                            elseif ($fatch['send'] == 'Bkash Personal') {
-                                $send = '<img src="./icons/bkash.svg" width="28px" alt="">';
-                            }
-                            elseif ($fatch['send'] == 'Nagad Personal') {
-                                $send = '<img src="./icons/nagad.svg" width="28px" alt="">';
-                            }
-                            elseif ($fatch['send'] == 'Tether') {
-                                $send = '<img src="./icons/theter.svg" width="28px" alt="">';
-                            }
-                            
-                            
+
+
 
                             // recive
 
 
-                            if ($fatch['recive'] == 'Tron') {
-                                $recive = '<img src="./icons/tron.svg" width="28px" alt="" class = "recive_img">';
-                            } elseif ($fatch['recive'] == 'Litecoin') {
-                                $recive = '<img src="./icons/litecoin.svg" width="28px" alt="" class = "recive_img">';
+                            if ($fatch['recive'] == 'Bkash Personal') {
+                                $recive = '<img src="./icons/bkash.svg" width="28px" alt="">';
+                            } elseif ($fatch['recive'] == 'Nagad Personal') {
+                                $recive = '<img src="./icons/nagad.svg" width="28px" alt="">';
+                            } elseif ($fatch['recive'] == 'Upay Personal') {
+                                $recive = '<img src="./icons/upay.svg" width="28px" alt="">';
                             } elseif ($fatch['recive'] == 'Payeer') {
-                                $recive = '<img src="./icons/payeer.svg" width="28px" alt="" class = "recive_img">';
-                            } elseif ($fatch['recive'] == 'Perfect money') {
-                                $recive = '<img src="./icons/perfect.svg" width="28px" alt="" class = "recive_img">';
+                                $recive = '<img src="./icons/payeer.svg" width="28px" alt="">';
+                            } elseif ($fatch['recive'] == 'Payoneer') {
+                                $recive = '<img src="./icons/payoneer.svg" width="28px" alt="">';
+                            } elseif ($fatch['recive'] == 'Perfect Money') {
+                                $recive = '<img src="./icons/perfect.svg" width="28px" alt="">';
+                            } elseif ($fatch['recive'] == 'Paypal') {
+                                $recive = '<img src="./icons/paypal.svg" width="28px" alt="">';
+                            } elseif ($fatch['recive'] == 'AdvCash') {
+                                $recive = '<img src="./icons/advcash.svg" width="28px" alt="">';
                             }
-                             elseif ($fatch['recive'] == 'Coinbase') {
-                                $recive = '<img src="./icons/coinbase.svg" width="28px" alt="" class = "recive_img">';
-                            }
-                             elseif ($fatch['recive'] == 'Bkash Personal') {
-                                $recive = '<img src="./icons/bkash.svg" width="28px" alt="" class = "recive_img">';
-                            }
-                             elseif ($fatch['recive'] == 'Nagad Personal') {
-                                $recive = '<img src="./icons/nagad.svg" width="28px" alt="" class = "recive_img">';
-                            }
-                             elseif ($fatch['recive'] == 'Tether') {
-                                $recive = '<img src="./icons/theter.svg" width="28px" alt="" class = "recive_img">';
-                            }
-                            
 
 
                             // payment status
@@ -295,80 +286,9 @@ if (!isset($_SESSION['loggedn']) || $_SESSION['loggedn'] != true) {
 
 
     <!-- footer -->
-    <section class="main_footer_sec">
-
-        <div class="footer_sec">
-            <div class="container footer_con">
-                <div class="row align-items-start">
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>Browse crypto prices</li>
-                            <li>Coinbase Bytes newsletter</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li class="li_b">Company</li>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                            <li>Blog</li>
-                            <li>Press</li>
-                            <li>Investors</li>
-                            <li>Legal &amp; privacy</li>
-                            <li>Cookie policy</li>
-                            <li>Cookie preferences</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer mt-auto py-3">
-        <div class="container copy_right">
-            <span class="text-muted">design and code by @redhalozen</span>
-        </div>
-    </footer>
+    <?php
+    include("footer.php")
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
